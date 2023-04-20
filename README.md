@@ -1,3 +1,5 @@
 # JavaScript
 
-More awesome content will be updated soon.
+## This repository contains all the JavaScript code files and the articles written by me.
+
+- ### [ Articles ](https://github.com/K-Subramanyeshwara/Articles) ✍️
