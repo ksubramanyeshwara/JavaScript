@@ -1,7 +1,7 @@
 /*
 equality operator compares 2 values are equal or not. There are 2 types
 
-1. Loose equality (==)
+1. Abstract(Loose) equality (==)
 2. Strict equality (===)
 
 Note: The == or != operator does type conversion of elements before comparing them.
@@ -9,8 +9,11 @@ Note: The == or != operator does type conversion of elements before comparing th
 */
 
 /* 
-Equality (==)
+Abstract Equality (==)
 x == y
+
+--In this type of comparison, type coercion is performed by JavaScript.
+--Type coercion is the automatic or implicit conversion of values from one data type to another (such as strings to numbers).
 
 --Returns true if the both operands are of the same data type and same value or
 --if both are of different data types, but either of them can be converted to the data type of the  other operand and have the same value.
@@ -43,6 +46,9 @@ let str2 = 'Javascript';
 let str3 = 'JavaScript';
 console.log(str1 == str2);//true
 console.log(str1 == str3);//false
+console.log('0' == 0);//true
+console.log([9, 2] == '9,2');//true
+console.log("" == 0);//true
 console.log();
 
 /*
@@ -71,6 +77,9 @@ x === y
 -- compares operands and returns true if both operands are of the same data type and have some value,
 --otherwise, it returns false.
 
+--Strict equality treats NaN as unequal to every other value including itself.
+--It also doesn't care about the difference between +0 and -0.
+
 */
 let aa = 10;
 let bb = '10';
@@ -78,6 +87,9 @@ let cc = 10;
 console.log(aa===bb);//false
 console.log(aa===cc);//true
 console.log(34 === '34');//false
+console.log('0' == 0);//false
+console.log([9, 2] == '9,2');//false
+console.log("" == 0);//false
 console.log();
 
 
@@ -90,3 +102,17 @@ x !== y
 */ 
 
 console.log(34 !== '34');//true
+
+
+/*
+Same Value Equality with "Object.is"
+
+
+Object.is(0, 0) // true
+Object.is(null, null) // true
+Object.is(undefined, undefined) // true
+Object.is(true, 1) // false
+Object.is(+0, -0) // false
+Object.is(NaN, NaN) // true
+
+*/

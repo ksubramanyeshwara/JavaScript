@@ -75,8 +75,20 @@ console.log("***** Devision *****");
 let result1 = "hello" / 2;
 console.log(result1);
 console.log(0/0);//NaN
+console.log();
 
+/*
+Comma Operator
 
+--The comma operator (,) is used to separate multiple expressions in a single statement. 
+--The expressions are evaluated from left to right, and the value of the last expression is returned.
 
+*/
+let x = 5;
+let y = 2;
+
+let results = (x++, y++, x + y);
+
+console.log(results); // 9
 
 
