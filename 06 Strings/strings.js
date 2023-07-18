@@ -109,3 +109,7 @@ firstName = fullName.slice(0, fullName.indexOf(" "));//start from 0 and end when
 lastName = fullName.slice(fullName.indexOf(" ")+1)//everything after 1st space
 console.log(firstName);
 console.log(lastName);
+console.log();
+
+//string.split() - returns Array of strings, 
+console.log(str1.split());
