@@ -1,11 +1,3 @@
-/*
-Date and Time is displayed in a format where human can understand but JavaScript understands date based upon timestamp
-Timestamp specified as milliseconds elapsed since January 1st 1970 (unix time)
-
-To start using the date object we need to create or instantiate new date object
-
-*/
-
 let myDate = new Date();
 //console.log(myDate);//displays date, time and standard
 // console.log(myDate.toString());//use toString() method on VScode only
@@ -43,3 +35,27 @@ let dateTimeString1 = new Date("Jan 22 2023 07:02:05");
 1. getTime()
 2. setTime() 
 */ 
+
+//Date.getDate()
+
+let myTimeStamp = new Date();
+console.log(myTimeStamp.getDate());// Returns current date of the month (1 to 31)
+console.log(myTimeStamp.getDay());// 6th day
+console.log(myTimeStamp.getMonth());// 7 because count starts from 0 
+console.log(myTimeStamp.getFullYear());//Returns current year according to local time
+console.log(myTimeStamp.getHours());// hours ranging between 0 and 23
+console.log(myTimeStamp.getMinutes());
+console.log(myTimeStamp.getSeconds());
+console.log();
+
+myTimeStamp.setDate(15);
+console.log(myTimeStamp.getDate());
+
+myTimeStamp.setMonth(11);
+console.log(myTimeStamp.getMonth());
+
+myTimeStamp.setFullYear(1992, 9)
+console.log(myTimeStamp.getFullYear());
+console.log(myTimeStamp.getMonth());
+
+myTimeStamp.setHours
