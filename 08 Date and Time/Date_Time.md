@@ -127,6 +127,21 @@ Let's see some of the `set` methods using local time.
 
 `Date.setHours()` - Used to set the hour value into date object. It can also be used to set `setMinutes()`, `setSeconds()` and `setMilliseconds()`.
 
+ `date.toLocaleString()` - Used to date and time into strings using local time.
+
+ ```JS
+ let newDate = new Date();
+console.log(
+    newDate.toLocaleString('default', 
+    {
+        month: "long",
+        weekday: "long",
+        day: "numeric",
+        year: "2-digit"
+    })
+);
+ ```
+
 ## Conclusion
 
 We have covered from creating `date` object and using the inbuilt methods. This will give you a kickstart to learn date and time.

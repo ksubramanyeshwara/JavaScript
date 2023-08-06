@@ -58,4 +58,13 @@ myTimeStamp.setFullYear(1992, 9)
 console.log(myTimeStamp.getFullYear());
 console.log(myTimeStamp.getMonth());
 
-myTimeStamp.setHours
+let newDate = new Date();
+console.log(
+    newDate.toLocaleString('default', 
+    {
+        month: "long",
+        weekday: "long",
+        day: "numeric",
+        year: "2-digit"
+    })
+);
