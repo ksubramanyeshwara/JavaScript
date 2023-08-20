@@ -105,6 +105,8 @@ Let's take an array as exmple for our methods
 const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
 ```
 
+- ***array.length***
+
 - ***array.push()***
 
     The specified element is inserted at the end of an array. Length of an array will be changed.
@@ -193,4 +195,169 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     console.log(elements.join());
     console.log(elements.join(' '));
     console.log(elements.join('-'));
+    ```
+
+- ***array.slice()***
+
+    Returns a [shallow copy](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy) of a selected elements in an array, as a new array. The original remains unchanged.
+    Selects from a user specified start index, up to a user specified end index(end index is not included).
+
+    ```JS
+    const animals = ['Cat', 'Dog', 'Cow', 'Lion', 'Ant', 'Bear', 'Rabbit'];
+    console.log(animals);
+    console.log(animals.slice(1, 3));
+    console.log(animals.slice(3));
+    console.log(animals.slice(-3));
+    console.log(animals.slice(2, -1));
+    /*
+        OUTPUT
+
+        [
+         'Cat',    'Dog',
+         'Cow',    'Lion',
+         'Ant',    'Bear',
+         'Rabbit']
+        [ 'Dog', 'Cow' ]
+        [ 'Lion', 'Ant', 'Bear', 'Rabbit' ] 
+        [ 'Ant', 'Bear', 'Rabbit' ]
+        [ 'Cow', 'Lion', 'Ant', 'Bear' ] 
+    */
+    ```
+
+- ***array.splice()***
+
+    Changes the contents of an array by removing or replacing existing elements and/or adding new elements.
+
+    ```JS
+    const months = ['Jan', 'Mar', 'Apr', 'Jun', 'Jul', 'Aug'];
+    console.log(months);
+    /*
+        OUTPUT
+
+        [ 'Jan', 'Mar', 'Apr', 'Jun', 'Aug' ]
+    */
+    ```
+
+    ***array.splice(start)***
+
+    The index at which to start changing the array. This is a required argument. It will delete everything after start index.
+
+    ```JS
+    months.splice(1);
+    console.log(months);
+    /*
+        OUTPUT
+
+        [ 'Jan' ]
+    */
+    ```
+
+    ***array.splice(start, deleteCount)***
+
+    Start: The index at which to start changing the array. This is a required argument.
+
+    deleteCount: The number of elements to remove from the array, starting at the start index. If deleteCount is not provided or is greater than the number of elements remaining in the array after the start index, all elements from the start index to the end of the array will be removed.
+
+    ```JS
+    months.splice(2, 2);
+    console.log(months);
+    /*
+        OUTPUT
+
+        [ 'Jan', 'Mar', 'Aug' ]
+    */
+    ```
+
+    ***array.splice(start, deleteCount, item0, item1, /* …, */ itemN)***
+
+    start: The index at which to start changing the array. This is a required argument.
+
+    deleteCount: The number of elements to remove from the array, starting at the start index. If deleteCount is 0, no elements will be removed.
+
+    item0, item1, ...: The elements to be added to the array, starting at the start index. These elements will be inserted into the array at the specified position.
+
+    ```JS
+    months.splice(1, 0, 'Feb') //No element is deleted and 1 element is added at the index 1
+    months.splice(4, 2, 'Jun', 'Jul', 'Aug')// Removes 2 element starting from index 4 and adds 3 
+    /*
+        OUTPUT
+        
+        [ 'Jan', 'Feb', 'Mar', 'Apr', 'Jun', 'Aug' ]
+        [
+        'Jan', 'Feb',
+        'Mar', 'Apr',
+        'Jun', 'Jul',
+        'Aug'
+        ]
+    */
+    ```
+
+- ***array.concat()***
+
+    Used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
+
+    ```JS
+    const array1 = ['a', 'b', 'c'];
+    const array2 = ['d', 'e', 'f'];
+    const array3 = ['g', 'h', 'i'];
+    const array4 = array1.concat(array2);
+    const array5 = array1.concat(array2, array3);
+    console.log(array4);
+    console.log(array5);
+
+    /*
+        OUTPUT
+
+        [ 'a', 'b', 'c', 'd', 'e', 'f' ]
+
+        [
+         'a', 'b', 'c',
+         'd', 'e', 'f',
+         'g', 'h', 'i'
+        ]
+    */
+    ```
+
+- ***spread operator***
+
+    ```JS
+    const array1 = ['a', 'b', 'c'];
+    const array2 = ['d', 'e', 'f'];
+    const array3 = ['g', 'h', 'i'];
+    const array4 = [...array1, ...array2, ...array3];
+    console.log(array4);
+
+    const parts = ["shoulders", "knees"];
+    const lyrics = ["head", ...parts, "and", "toes"];
+    console.log(lyrics);
+
+    /*
+        OUTPUT
+
+        [
+         'a', 'b', 'c',
+         'd', 'e', 'f',
+         'g', 'h', 'i'
+        ]
+        [ 'head', 'shoulders', 'knees', 'and', 'toes' ]
+    */
+    ```
+
+- ***array.flat(depth)***
+
+    Creates a new array with all sub-array elements concatenated into it. We can also specify how deep a nested array should be flattened.
+
+    ```JS
+    const arr1 = [0, 1, 2, [3, 4],5, [6, [7, 8], 9]];
+    const arr2 = arr1.flat(3);
+    console.log(arr2);
+
+    /*
+        OUTPUT
+
+        [
+         0, 1, 2, 3, 4,
+         5, 6, 7, 8, 9
+        ]
+    */
     ```
