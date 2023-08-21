@@ -1,5 +1,15 @@
 //Array Methods
 
+//array.length
+// const clothing = ['shoes', 'shirts', 'socks', 'sweaters'];
+// console.log(clothing);
+// console.log(clothing.length);
+// //to get last value from an array
+// console.log(clothing[clothing.length - 1]);
+// //changing original array through length
+// clothing.length = 2;
+// console.log(clothing);
+
 //array.push()
 //const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
 // console.log("Array before Push method", myArray);
@@ -103,3 +113,33 @@
 // const arr1 = [0, 1, 2, [3, 4],5, [6, [7, 8], 9]];
 // const arr2 = arr1.flat(3);
 // console.log(arr2);
+
+//array.isArray()
+// console.log(Array.isArray('Subramanya'));
+// console.log(Array.isArray([]));
+// console.log(Array.isArray([1, 3, 5, 7]));
+// console.log(Array.isArray(new Array()));
+// console.log(Array.isArray(new Array("a", "b", "c", "d")));
+
+//Array.from()
+// console.log(Array.from('foo'));
+// console.log(Array.from({Language : "JavaScript"}));
+
+//Array.of()
+// const score1 = 100;
+// const score2 = 150;
+// const score3 = 200;
+// console.log(Array.of('foo', 2, 'bar', true, score1, score2, score3));
+
+//array.copyWithin(Target, start, end)
+// let numbers = [1, 2, 3, 4, 5, 6];
+// //take the element from index 3 and above and place the element from index 0
+// console.log(numbers.copyWithin(0, 3));
+
+// //It takes element from index 0 and above and place the element from index 0 to end of an array
+// let numbers1 = [1, 2, 3, 4, 5, 6];
+// console.log(numbers1.copyWithin(2));
+
+// //Take element from index 0 to 3(Exclusive) and place it from the index 3
+// let numbers2 = [1, 2, 3, 4, 5, 6];
+// console.log(numbers2.copyWithin(3, 0, 3));

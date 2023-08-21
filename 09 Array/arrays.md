@@ -97,6 +97,32 @@ let evenOddNumbers = [2, 4, 6, 8, 10, [1, 3, 5, 7]];
 console.log(evenOddNumbers[5][2]);
 ```
 
+## Array Property
+
+- ***array.length***
+
+    Represents the number of elements in that array.
+
+    ```JS
+    const clothing = ['shoes', 'shirts', 'socks', 'sweaters'];
+    console.log(clothing);
+    console.log(clothing.length);
+    //to get last value from an array
+    console.log(clothing[clothing.length - 1]);
+    //changing original array through length
+    clothing.length = 2;
+    console.log(clothing);
+
+    /*
+        OUTPUT
+
+        4
+        sweaters
+        [ 'shoes', 'shirts', 'socks', 'sweaters' ]
+        [ 'shoes', 'shirts' ]
+    */
+    ```
+
 ## Array Methods
 
 Let's take an array as exmple for our methods
@@ -104,8 +130,6 @@ Let's take an array as exmple for our methods
 ```JS
 const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
 ```
-
-- ***array.length***
 
 - ***array.push()***
 
@@ -359,5 +383,96 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
          0, 1, 2, 3, 4,
          5, 6, 7, 8, 9
         ]
+    */
+    ```
+
+- ***Array.isArray()***
+
+    determines whether the passed value is an Array or not.
+
+    ```JS
+    console.log(Array.isArray('Subramanya'));
+    console.log(Array.isArray([]));
+    console.log(Array.isArray([1, 3, 5, 7]));
+    console.log(Array.isArray(new Array()));
+    console.log(Array.isArray(new Array("a", "b", "c", "d")));
+
+    /*
+        OUTPUT
+
+        false
+        true
+        true
+        true
+        true
+    */
+    ```
+
+- ***Array.from()***
+
+    Creates a new, shallow-copied Array instance from an iterable or array-like object.
+
+    ```JS
+    console.log(Array.from('foo'));
+    console.log(Array.from({Language : "JavaScript"}));
+
+    /*
+        OUTPUT
+
+        [ 'f', 'o', 'o' ]
+        [] //Because it don't know from where to create an array. 
+    */
+    ```
+
+- ***Array.of()***
+
+    Creates a new Array instance from the given arguments.
+
+    ```JS
+    const score1 = 100;
+    const score2 = 150;
+    const score3 = 200;
+    console.log(Array.of('foo', 2, 'bar', true, score1, score2, score3));
+
+    /*
+        OUTPUT
+
+        [
+         'foo', 2,   'bar',
+         true,  100, 150,
+         200
+        ]        
+    */
+    ```
+
+- ***array.copyWithin(Target, start, end)***
+
+    Copies array elements from one position to another in the given array. It keeps it's original length.
+
+    target: The index position where you want to copy the elements to(Required).
+
+    start: It is optional. The index position to start copying elements from (default is 0).
+
+    end: It is optional. The index position to stop copying elements from (default is array.length).
+
+    ```JS
+    let numbers = [1, 2, 3, 4, 5, 6];
+    //take the element from index 3 and above and place the element from index 0
+    console.log(numbers.copyWithin(0, 3));
+
+    //It takes element from index 0 and above and place the element from index 0 to end of an array
+    let numbers1 = [1, 2, 3, 4, 5, 6];
+    console.log(numbers1.copyWithin(2));
+
+    //Take element from index 0 to 3(Exclusive) and place it from the index 3
+    let numbers2 = [1, 2, 3, 4, 5, 6];
+    console.log(numbers2.copyWithin(3, 0, 3));
+    
+    /*
+        OUTPUT
+
+        [ 4, 5, 6, 4, 5, 6 ]
+        [ 1, 2, 1, 2, 3, 4 ]
+        [ 1, 2, 3, 1, 2, 3 ]
     */
     ```
