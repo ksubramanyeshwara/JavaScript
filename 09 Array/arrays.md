@@ -19,6 +19,12 @@ An array is a single variable that can be used to store elements of different da
     ```JS
     let southernStates = ["Andhra Pradesh", "Karnataka", "Kerala", "Tamil Nadu"];
     console.log(southernStates);
+
+    /*
+        OUTPUT
+
+        [ 'Andhra Pradesh', 'Karnataka', 'Kerala', 'Tamil Nadu' ]
+    */
     ```
 
 - Using new Keyword
@@ -35,6 +41,19 @@ An array is a single variable that can be used to store elements of different da
     frontendDevelopment[5] = "TypeScript";
     frontendDevelopment[6] = "Git";
     console.log(frontendDevelopment);
+
+    /*
+        OUTPUT
+        [
+         'HTML',
+         'CSS',
+         'TailwindCSS',
+         'JavaScript',
+         'ReactJS',
+         'TypeScript',
+         'Git'
+        ]
+    */
     ```
 
 ***Creating an array with undefined items***
@@ -42,6 +61,12 @@ An array is a single variable that can be used to store elements of different da
 ```JS
 let arrayNumber = new Array(5);
 console.log(arrayNumber);
+
+/*
+    OUTPUT
+
+    [ <5 empty items> ]
+*/
 ```
 
 ***Accessing array elements***
@@ -52,6 +77,14 @@ Any element of an array can be accessed through index number. Index starts from 
 console.log(southernStates[1]);
 console.log(southernStates[3]);
 console.log(southernStates[0]);
+
+/*
+    OUTPUT
+
+    Karnataka
+    Tamil Nadu
+    Andhra Pradesh
+*/
 ```
 
 ***Adding an element to the end of an Array***
@@ -60,6 +93,14 @@ console.log(southernStates[0]);
 console.log("Before adding a value",southernStates);
 southernStates[4] = "Telangana";
 console.log("After adding a value",southernStates);
+
+/*
+    OUTPUT
+
+    Before adding a value [ 'Andhra Pradesh', 'Karnataka', 'Kerala', 'Tamil Nadu' ]
+
+    After adding a value [ 'Andhra Pradesh', 'Karnataka', 'Kerala', 'Tamil Nadu', 'Telangana' ] 
+*/
 ```
 
 ***Replacing the element in any position from an Array***
@@ -68,6 +109,29 @@ console.log("After adding a value",southernStates);
 console.log("Before replacing a value",frontendDevelopment);
 frontendDevelopment[2] = "Bootstrap";
 console.log("After replacing a value",frontendDevelopment);
+
+/*
+    OUTPUT
+
+    Before replacing a value [
+     'HTML',
+     'CSS',
+     'TailwindCSS',
+     'JavaScript',
+     'ReactJS',
+     'TypeScript',
+     'Git'
+    ]
+    After replacing a value [
+     'HTML',
+     'CSS',
+     'Bootstrap',
+     'JavaScript',
+     'ReactJS',
+     'TypeScript',
+     'Git'
+    ]
+*/
 ```
 
 ***Deleting an array element from any position***
@@ -79,6 +143,18 @@ console.log("Length Before deleting a element",numbers.length);
 delete numbers[2];
 console.log("After deleting a element",numbers);
 console.log("Length After deleting a element",numbers.length);
+
+/*
+    OUTPUT
+
+    Before deleting a element [ 1, 2, 3, 4, 5 ]
+    Length Before deleting a element 5
+
+    After deleting a element [ 1, 2, <1 empty item>, 4, 5 ]
+    Length After deleting a element 5
+    Deleted Element Index undefined
+
+*/
 ```
 
 >we can see that the length of an array is same before and after deleting an element because when we delete an element using delete it will simply don't delete the index and that index will have undefined value.
@@ -95,6 +171,12 @@ let evenOddNumbers = [2, 4, 6, 8, 10, [1, 3, 5, 7]];
 
 ```JS
 console.log(evenOddNumbers[5][2]);
+
+/*
+    OUTPUT
+
+    5
+*/
 ```
 
 ## Array Property
@@ -138,7 +220,15 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     ```JS
     console.log("Array before Push method", myArray);
     myArray.push("Bengaluru");
-    console.log("Array after Push method", myArray);
+    console.log("\nArray after Push method", myArray);
+
+    /*
+        OUTPUT
+
+        Array before Push method [ 1, 2, 3, 'Mysuru', 'Honnavara' ]
+
+        Array after Push method [ 1, 2, 3, 'Mysuru', 'Honnavara', 'Bengaluru' ]
+    */
     ```
 
     > Merging two arrays using array.push method, Merging two arrays can also be done with the `concat()` method.
@@ -146,8 +236,18 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     ```Js
     const vegetables = ["parsnip", "potato"];
     const moreVegetables = ["celery", "beetroot"];
+    console.log(vegetables);
+    console.log(moreVegetables);
     vegetables.push(...moreVegetables);
     console.log(vegetables);
+
+    /*
+        OUTPUT
+
+        [ 'parsnip', 'potato' ]
+        [ 'celery', 'beetroot' ]
+        [ 'parsnip', 'potato', 'celery', 'beetroot' ]
+    */
     ```
 
 - ***array.pop()***
@@ -160,6 +260,14 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     const removedVegetable = leafyVeggies.pop();
     console.log("Array after pop method : ", leafyVeggies);
     console.log("Removed Vegetable : ", removedVegetable);
+
+    /*
+        OUTPUT
+
+        Array before pop method :  [ 'Spinach', 'Cabbage', 'kale', 'Broccoli', 'Lettuce' ]
+        Array after pop method :  [ 'Spinach', 'Cabbage', 'kale', 'Broccoli' ]
+        Removed Vegetable :  Lettuce
+    */
     ```
 
 - ***array.unshift()***
@@ -171,6 +279,13 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     console.log("Array before unshift method", numbers);
     numbers.unshift(4, 5)
     console.log("Array after unshift method", numbers);
+
+    /*
+        OUTPUT
+
+        Array before unshift method [ 1, 2, 3 ]
+        Array after unshift method [ 4, 5, 1, 2, 3 ]
+    */
     ```
 
 - ***array.shift()***
@@ -182,6 +297,13 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     console.log("Array before shift method", numbers);
     numbers.shift()
     console.log("Array after shift method", numbers);
+
+    /*
+        OUTPUT
+
+        Array before shift method [ 1, 2, 3 ]
+        Array after shift method [ 2, 3 ]
+    */
     ```
 
 - ***array.includes()***
@@ -194,6 +316,15 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     console.log(pets.includes('Dogs'));
     console.log(pets.includes('dog'));
     console.log(pets.includes(2));
+
+    /*
+        OUTPUT
+
+        false
+        true
+        false
+        true
+    */
     ```
 
 - ***array.indexof()***
@@ -208,6 +339,15 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     console.log(fruits.indexOf("Apple", 3));
     console.log(fruits.indexOf("Star"));
     console.log(fruits.indexOf(2));
+
+    /*
+        OUTPUT
+
+        2
+        5
+        -1
+        7
+    */
     ```
 
 - ***array.join()***
@@ -219,6 +359,14 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     console.log(elements.join());
     console.log(elements.join(' '));
     console.log(elements.join('-'));
+
+    /*
+        OUTPUT
+
+        Fire,Air,Water
+        Fire Air Water
+        Fire-Air-Water
+    */
     ```
 
 - ***array.slice()***
@@ -474,5 +622,85 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
         [ 4, 5, 6, 4, 5, 6 ]
         [ 1, 2, 1, 2, 3, 4 ]
         [ 1, 2, 3, 1, 2, 3 ]
+    */
+    ```
+
+- ***array.reduce()***
+
+- ***array.fill(value, start, end)***
+
+    Fills an array with specified elements. It can fill entire array or part of an array. It overwrites the original array.
+
+    value - Value to fill the array with.
+
+    start (optional) - Start index (default is 0).
+
+    end (optional) - End index (default is Array.length), which is always excluded.
+
+    `array.fill(value)`
+
+    ```JS
+    const fruits = ["Mango", "Banana", "Grape", "Apple", "Orange", "Lemon", "Papaya"];
+    console.log(fruits);
+    console.log(fruits.fill(1)); //fill the array with 1 for all array elements
+
+    /*
+        OUTPUT
+
+        [
+         'Mango',  'Banana',
+         'Grape',  'Apple',
+         'Orange', 'Lemon',
+         'Papaya'
+        ]
+        [
+         1, 1, 1, 1,
+         1, 1, 1
+        ]
+    */
+    ```
+
+    `array.fill(value, start)`
+
+    ```JS
+    const fruits = ["Mango", "Banana", "Grape", "Apple", "Orange", "Lemon", "Papaya"];
+    console.log(fruits);
+    console.log(fruits.fill(1, 3));//fill the array with 1 from index 3 to end of an array
+
+    /*
+        OUTPUT
+
+        [
+         'Mango',  'Banana',
+         'Grape',  'Apple',
+         'Orange', 'Lemon',
+         'Papaya'
+        ]
+        [ 'Mango', 'Banana', 'Grape', 1, 1, 1, 1 ]
+    */
+    ```
+
+    `array.fill(value, start, end)`
+
+    ```JS
+    const fruits = ["Mango", "Banana", "Grape", "Apple", "Orange", "Lemon", "Papaya"];
+    console.log(fruits);
+    console.log(fruits.fill(1, 2, 4));//fill the array with 1 from index 2 to 4(Exclusive)
+
+    /*
+        OUTPUT
+
+        [
+         'Mango',  'Banana',
+         'Grape',  'Apple',
+         'Orange', 'Lemon',
+         'Papaya'
+        ]
+        [
+         'Mango',  'Banana',
+         1,        1,
+         'Orange', 'Lemon',
+         'Papaya'
+        ];
     */
     ```

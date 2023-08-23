@@ -4,24 +4,25 @@
 // const clothing = ['shoes', 'shirts', 'socks', 'sweaters'];
 // console.log(clothing);
 // console.log(clothing.length);
-// //to get last value from an array
+//to get last value from an array
 // console.log(clothing[clothing.length - 1]);
-// //changing original array through length
+//changing original array through length
 // clothing.length = 2;
 // console.log(clothing);
 
 //array.push()
-//const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
+// const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
 // console.log("Array before Push method", myArray);
 // myArray.push("Bengaluru");
-// console.log("Array after Push method", myArray);
+// console.log("\nArray after Push method", myArray);
 
 //Merging two arrays using array.push method, Merging two arrays can also be done with the concat() method.
 // const vegetables = ["parsnip", "potato"];
 // const moreVegetables = ["celery", "beetroot"];
+// console.log(vegetables);
+// console.log(moreVegetables);
 // vegetables.push(...moreVegetables);
 // console.log(vegetables);
-
 
 //array.pop()
 // const leafyVeggies = ['Spinach', 'Cabbage', 'kale', 'Broccoli', 'Lettuce'];
@@ -79,7 +80,7 @@
 // console.log(months);
 
 // array.splice(start, deleteCount)
-// months.splice(2, 2); //Removes 2 elements starting from index 2 
+// months.splice(2, 2); //Removes 2 elements starting from index 2
 // console.log(months);
 
 //array.splice(start, deleteCount, item0, item1, /* …, */ itemN)
@@ -133,13 +134,26 @@
 
 //array.copyWithin(Target, start, end)
 // let numbers = [1, 2, 3, 4, 5, 6];
-// //take the element from index 3 and above and place the element from index 0
+//take the element from index 3 and above and place the element from index 0
 // console.log(numbers.copyWithin(0, 3));
 
-// //It takes element from index 0 and above and place the element from index 0 to end of an array
+//It takes element from index 0 and above and place the element from index 0 to end of an array
 // let numbers1 = [1, 2, 3, 4, 5, 6];
 // console.log(numbers1.copyWithin(2));
 
-// //Take element from index 0 to 3(Exclusive) and place it from the index 3
+//Take element from index 0 to 3(Exclusive) and place it from the index 3
 // let numbers2 = [1, 2, 3, 4, 5, 6];
 // console.log(numbers2.copyWithin(3, 0, 3));
+
+//array.fill()
+// const fruits = ["Mango", "Banana", "Grape", "Apple", "Orange", "Lemon", "Papaya"];
+// console.log(fruits);
+
+//array.fill(value)
+// console.log(fruits.fill(1));//fill the array with 1 for all array elements
+
+//array.fill(value, start)
+// console.log(fruits.fill(1, 3));//fill the array with 1 from index 3 to end of an array
+
+//array.fill(value, start ,end )
+//console.log(fruits.fill(1, 2, 4));//fill the array with 1 from index 2 to 4(Exclusive)
