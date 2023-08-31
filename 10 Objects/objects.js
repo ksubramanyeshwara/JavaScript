@@ -104,7 +104,36 @@ Accessing properties of Object
 // console.log(Laptop["processor"]);
 // console.log(Laptop["RAM"]);
 
+
+
 /*
 Interview Question
 Declaring symbol inside the object as key or Using symbol as object-key
+Adding predefined method to object property.
 */
+// const mySymbl = Symbol("Key");
+// const Laptop = {
+//    brand: "Samsung",
+//    "processor": "Snapdragon",
+//    "RAM": 24,
+//     gpu: "1024mb",
+//     [mySymbl]: "myKey"
+// };
+// console.log(Laptop[mySymbl]);
+// console.log(Laptop);
+
+
+/*
+Updating an existing properties of an object
+*/
+//bracket notation
+// Laptop["processor"] = "AMD";
+
+//dot noatation
+// Laptop.gpu = "2048mb";
+// console.log(Laptop);
+
+
+/*
+Adding properties to an object
+*/ 

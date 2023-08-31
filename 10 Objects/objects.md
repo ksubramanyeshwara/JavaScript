@@ -63,6 +63,8 @@ console.log(JsUser);
 ***Creating object with `Object.create()` method***
 The `Object.create()` method is used to create an object from an existing object. It creates a new object with the same properties as the existing object.
 
+It is a singleton object.
+
 ```JS
 let person = {
   firstname: "steve",
@@ -198,7 +200,7 @@ console.log(person.greet());
 1. Using the dot operator.
 2. Using the bracket operator.
 
-***Dot Operator***
+***dot operator***
 
 Using `dot operator` you can acess the properties of the object by writing the object's name, a dot (`.`), and the property name.
 
@@ -249,6 +251,75 @@ console.log(Laptop["RAM"]);
 */
 ```
 
+***Difference between dot (.) and bracket ( [ ] ) notations***
+
+Dot Notation only allows static keys while Bracket Notation accepts dynamic keys.
+
+Static key here means that the key is typed directly,
+
+Dynamic key here means that the key is evaluated from an expression.
+
+Read More on [freeCodeCamp](https://www.freecodecamp.org/news/dot-notation-vs-square-brackets-javascript/#:~:text=Differences%20between%20Dot%20Notation%20and,is%20evaluated%20from%20an%20expression.)
+
+***Using symbol as object-key***
+
+```JS
+const mySymbl = Symbol("Key");
+
+const Laptop = {
+   brand: "Samsung",
+   "processor": "Snapdragon",
+   "RAM": 24,
+    gpu: "1024mb",
+    [mySymbl]: "myKey"
+};
+
+console.log(Laptop[mySymbl]);
+console.log(Laptop);
+
+/*
+  OUTPUT
+
+  myKey
+  {
+   brand: 'Samsung',
+   processor: 'Snapdragon',
+   RAM: 24,
+   gpu: '1024mb',
+   [Symbol(Key)]: 'myKey'
+  }
+*/
+```
+
+***Updating an existing properties of an object***
+
+```JS
+const Laptop = {
+   brand: "Samsung",
+   "processor": "Snapdragon",
+   "RAM": 24,
+    gpu: "1024mb",
+};
+console.log(Laptop);
+
+//bracket notation
+Laptop["processor"] = "AMD";
+
+//dot noatation
+Laptop.gpu = "2048mb";
+
+console.log(Laptop);
+
+/*
+  OUTPUT
+
+  { brand: 'Samsung', processor: 'Snapdragon', RAM: 24, gpu: '1024mb' }  
+  { brand: 'Samsung', processor: 'AMD', RAM: 24, gpu: '2048mb' }
+*/
+```
+
 ### Resources
 
-[Tutorials Tonigt](https://www.tutorialstonight.com/js/js-objects?expand_article=1)
+- [Tutorials Tonigt](https://www.tutorialstonight.com/js/js-objects?expand_article=1)
+
+- [LearnersBucket](https://learnersbucket.com/tutorials/data-structures/javascript-objects-complete-reference/)
