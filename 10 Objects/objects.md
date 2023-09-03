@@ -75,6 +75,8 @@ let person = {
 }
 // create a new object
 let newPerson = Object.create(person);
+// printing just object
+console.log(newPerson);// it will not show the properties because all the properties are hidden under prototype and can access them as regular properties.
 console.log(newPerson.fullName());
 
 // change the value of the new object
@@ -87,6 +89,7 @@ console.log(newPerson.fullName());
 
     OUTPUT
 
+    {}
     My name is steve jobs
     My name is K Subramanyeshwara 
 */
@@ -291,7 +294,7 @@ console.log(Laptop);
 */
 ```
 
-***Updating an existing properties of an object***
+## Updating an existing properties of an Object
 
 ```JS
 const Laptop = {
@@ -302,19 +305,169 @@ const Laptop = {
 };
 console.log(Laptop);
 
-//bracket notation
-Laptop["processor"] = "AMD";
-
 //dot noatation
 Laptop.gpu = "2048mb";
+console.log(Laptop);
 
+//bracket notation
+Laptop["processor"] = "AMD";
 console.log(Laptop);
 
 /*
   OUTPUT
 
-  { brand: 'Samsung', processor: 'Snapdragon', RAM: 24, gpu: '1024mb' }  
+  { brand: 'Samsung', processor: 'Snapdragon', RAM: 24, gpu: '1024mb' }        
+  { brand: 'Samsung', processor: 'Snapdragon', RAM: 24, gpu: '2048mb' }        
   { brand: 'Samsung', processor: 'AMD', RAM: 24, gpu: '2048mb' }
+*/
+```
+
+***Handling the non-existing property***
+
+Retrieving the property which does not exist inside the obj will return undefined.
+
+```JS
+let person = {
+   first_name: "K Subramanyeshwara"
+};
+
+console.log(person.first_name);
+console.log(person.last_name);
+
+/*
+  OUTPUT
+
+  K Subramanyeshwara
+  undefined
+*/
+```
+
+## Adding new properties to an Object
+
+```JS
+const Person = {
+    firstName: "K",
+    lastName: "Subramanyeshwara",
+    age: 26,
+    location: "Bengaluru",
+    email: "k@remote.com"
+}
+console.log(Person);
+
+//dot notation
+Person.socialMediaPresence = true;
+console.log(Person);
+
+//bracket notation
+Person["married"] = false;
+console.log(Person);
+
+/*
+  OUTPUT
+
+  {
+   firstName: 'K',
+   lastName: 'Subramanyeshwara',     
+   age: 26,
+   location: 'Bengaluru',
+   email: 'k@remote.com'
+  }
+  {
+   firstName: 'K',
+   lastName: 'Subramanyeshwara',     
+   age: 26,
+   location: 'Bengaluru',
+   email: 'k@remote.com',
+   socialMediaPresence: true
+  }
+  {
+   firstName: 'K',
+   lastName: 'Subramanyeshwara',     
+   age: 26,
+   location: 'Bengaluru',
+   email: 'k@remote.com',
+   socialMediaPresence: true,        
+   married: false
+  }
+*/
+```
+
+## Deleting properties from an Object
+
+We can delete the property using `delete` operator. If the property is not present then it will simply ignore it.
+
+```JS
+const Car = {
+    name: "Ford",
+    color: "Red",
+    price: "$100000",
+    topSpeed: "220kph"
+}
+console.log(Car);
+delete Car.price;
+console.log(Car);
+
+/*
+  OUTPUT
+
+  { name: 'Ford', color: 'Red', price: '$100000', topSpeed: '220kph' }
+  { name: 'Ford', color: 'Red', topSpeed: '220kph' }
+*/
+```
+
+## Checking if property or method exist in object
+
+***using `in` operator***
+
+`in` operator will check whether the given property exist or not. It will look for the property in the prototype chain also.
+
+```JS
+const User = {
+    fullName: "K Subramanyeshwara",
+    age: 26,
+    gender: "male",
+    getDetails: function () {
+        return`name is ${this.fullName}, the age is ${this.age} and the gender is ${this.gender}`;
+    }
+}
+
+console.log(User.getDetails());
+console.log("fullName" in User);
+console.log("getDetails" in User);
+
+/*
+  OUTPUT
+
+  name is K Subramanyeshwara, the age is 26 and the gender is male
+  true
+  true
+*/
+```
+
+***hasOwnProperty()***
+
+`hasOwnProperty()` operator will check whether the given property or method exist or not. It will not check for the properties present in the prototype chain.
+
+```JS
+const User = {
+    fullName: "K Subramanyeshwara",
+    age: 26,
+    gender: "male",
+    getDetails: function () {
+        return`name is ${this.fullName}, the age is ${this.age} and the gender is ${this.gender}`;
+    }
+}
+
+console.log(User.getDetails());
+console.log(User.hasOwnProperty("fullName"));
+console.log(User.hasOwnProperty("getDetails"));
+
+/*
+  OUTPUT
+
+  name is K Subramanyeshwara, the age is 26 and the gender is male
+  true
+  true
 */
 ```
 
