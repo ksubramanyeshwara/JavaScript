@@ -7,6 +7,7 @@ Function Declaration
 // console.log(greet("K Subramanyeshwara"));
 
 
+
 /*
 Function Expression
 */
@@ -16,11 +17,13 @@ Function Expression
 // console.log(greet("Ramya"));
 
 
+
 /*
 Function Constructor
 */
 // const greet = new Function('name', 'return `Hello, ${name}!`');
 // console.log(greet("Sumanth"));
+
 
 
 /*
@@ -30,6 +33,7 @@ Immediately Invoked Function Expression (IIFE)
 //   const message = "I'm an IIFE!";
 //   console.log(message);
 // })();
+
 
 
 /*
@@ -51,6 +55,7 @@ Arrow Function Expression (ES6+)
 // console.log(greet("Meghnana"));
 
 
+
 /*
 ES6+ Method Declaration (Class Methods)
 */
@@ -61,6 +66,7 @@ ES6+ Method Declaration (Class Methods)
 // }
 // const calc = new Calculator();
 // console.log(calc.add(2, 3));
+
 
 
 /*
@@ -76,6 +82,8 @@ Generator Function (ES6+)
 // console.log(iterator.next().value);
 // console.log(iterator.next().value);
 
+
+
 /**
  * Calling a function
 */
@@ -85,6 +93,7 @@ Generator Function (ES6+)
 // }
 // Function call
 // hello();
+
 
 
 /**
@@ -98,6 +107,7 @@ Generator Function (ES6+)
 // fullName("Stephen");
 
 
+
 /**
  * function return
 */
@@ -106,6 +116,7 @@ Generator Function (ES6+)
 // }
 // var value = multiply(4, 6);
 // console.log("Multiplication of 2 numbers:",value);
+
 
 
 /**
@@ -119,18 +130,65 @@ Generator Function (ES6+)
 // console.log(result);
 // console.log(result1);
 
+// function printValue(a=1, b) {
+//     console.log("a = " + a + " and b = " + b);
+// }
+// printValue();
+// printValue(7);
+// printValue(7, 3);
+
+
 
 /**
  * passing multiple values in an function
 */
-function calculateCartPrice(...cartItems) {
-    return cartItems;
-}
-let cartItems = calculateCartPrice(500, 700, 300, 900);
-console.log(cartItems);
+// function calculateCartPrice(...cartItems) {
+//     return cartItems;
+// }
+// let cartItems = calculateCartPrice(500, 700, 300, 900);
+// console.log(cartItems);
 // We can also use rest operator after taking some values
-function calculateCartPrice1(cartItems1, cartItems2, ...cartItemsN) {
-    return cartItemsN;
-}
-let cartItems1 = calculateCartPrice1(500, 700, 300, 900);
-console.log(cartItems1);
+ // function calculateCartPrice1(cartItems1, cartItems2, ...cartItemsN) {
+//     return cartItemsN;
+// }
+// let cartItems1 = calculateCartPrice1(500, 700, 300, 900);
+// console.log(cartItems1);
+
+
+
+/**
+ * Passing Object into a function
+*/
+// const user = {
+//     userName: "K Subramanyeshwara",
+//     userAge: 26
+// }
+// function handleObject(anyObject) {
+     // return `User name is ${anyObject.userName} and User age is ${anyObject.userAge}`;
+//     console.log(`User name is ${anyObject.userName} and User age is ${anyObject.userAge}`);
+// }
+// let functionReturn = handleObject(user);
+// console.log(functionReturn);
+// handleObject({
+//     userName: "Ramya",
+//     userAge: 31
+// });
+
+
+
+/**
+ * Passing Object into a function
+*/
+// const studentScore = [87, 72, 95, 74, 91, 83];
+// function handleArray(anyArray) {
+//     return `Student score for 3rd subject is ${anyArray[2]}`;
+// }
+// const functionReturn = handleArray(studentScore);
+// console.log(functionReturn);
+// console.log(handleArray([67, 48, 98, 75]));
+
+
+
+/**
+ * 
+*/

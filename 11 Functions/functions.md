@@ -189,9 +189,27 @@ console.log(result1);
 */
 ```
 
-***passing multiple values in an function***
+```JS
+function printValue(a=1, b) {
+    console.log("a = " + a + " and b = " + b);
+}
 
-Using rest operator we can pass multiple values to the function.
+printValue();
+printValue(7);
+printValue(7, 3);
+
+/*
+    OUTPUT
+
+    a = 1 and b = undefined
+    a = 7 and b = undefined
+    a = 7 and b = 3    
+*/
+```
+
+***passing multiple values to an function***
+
+Using rest operator we can pass multiple values to the single parameter of the function.
 
 ```JS
 function calculateCartPrice(...cartItems) {
@@ -211,5 +229,52 @@ console.log(cartItems1);
 
     [ 500, 700, 300, 900 ]
     [ 300, 900 ]
+*/
+```
+
+***Passing Object into a function***
+
+```JS
+const user = {
+    userName: "K Subramanyeshwara",
+    userAge: 26
+}
+function handleObject(anyObject) {
+    // return `User name is ${anyObject.userName} and User age is ${anyObject.userAge}`;
+    console.log(`User name is ${anyObject.userName} and User age is ${anyObject.userAge}`);
+}
+// let functionReturn = handleObject(user);
+// console.log(functionReturn);
+handleObject({
+    userName: "Ramya",
+    userAge: 31
+});
+
+/*
+    OUTPUT
+
+    User name is K Subramanyeshwara and User age is 26 
+    User name is Ramya and User age is 31
+*/
+```
+
+***Passing Array into a function***
+
+```JS
+const studentScore = [87, 72, 95, 74, 91, 83];
+
+function handleArray(anyArray) {
+    return `Student score for 3rd subject is ${anyArray[2]}`;
+}
+
+// const functionReturn = handleArray(studentScore);
+// console.log(functionReturn);
+console.log(handleArray([67, 48, 98, 75]));
+
+/*
+    OUTPUT
+
+    Student score for 3rd subject is 95
+    Student score for 3rd subject is 98
 */
 ```
