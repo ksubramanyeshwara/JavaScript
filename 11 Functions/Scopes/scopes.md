@@ -1,6 +1,9 @@
 # Scope
 
-In JavaScript, scope refers to the visibility and accessibility of variables and functions within your code. Scope determines where in the code a variable and function can be accessed. Writing clear and error-free JavaScript code requires an in-depth knowledge of scopes.
+In JavaScript, scope refers to the visibility and accessibility of variables and functions within your code. Scope determines where in the code a variable and function can be accessed.
+
+Scoping of a variable is controlled by the location of its declaration.
+Writing clear and error-free JavaScript code requires an in-depth knowledge of scopes.
 
 There are 3 types of scope in JavaScript
 
@@ -88,9 +91,28 @@ With the introduction of ES6 (ECMAScript 2015), the let and const keywords intro
 Variables declared with `let` and `const` are block-scoped, which means they are only accessible within the block they are declared in.
 
 ```JS
-
+if (true) {
+  let blockVar = "I'm in a block scope";
+  console.log(blockVar); // Accessing blockVar is allowed
+}
+//console.log(blockVar); // ReferenceError: blockVar is not defined
 /*
     OUTPUT
 
+    I'm in a block scope
 */
 ```
+
+## Variable Declaration : var, let and const
+
+In JavaScript, variable declarations can be made using `var`, `let`, and `const` keywords, each with its own scoping rules.
+
+- `var`: Variables declared with `var` have function scope or global scope, depending on where they are declared. They are hoisted to the top of their scope during the parsing phase.
+
+- `let`: Variables declared with `let` have block scope. They are not hoisted and are only accessible within the block  and all the child blocks where they are defined.
+
+- `const`: Variables declared with `const` also have block scope like `let`. However, `const` variables are read-only and cannot be reassigned after declaration. The variables declared using the const keyword are block-scoped i.e. these variables are only accessible within the block in which they are declared and all the child blocks.
+
+Any variable declared via var can be re-declared as many times as we want. However, let and const can be only declared once in their respective scope.
+
+It is advised to use `let` and `const` instead of `var` when declaring variables to avoid common issues.

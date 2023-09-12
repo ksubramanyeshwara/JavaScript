@@ -37,11 +37,10 @@
 
 
 /**
- * 
+ * Block Scope (let and const)
 */
-if (true) {
-  let blockVar = "I'm in a block scope";
-  console.log(blockVar); // Accessing blockVar is allowed
-}
-
-console.log(blockVar); // This would result in an error because blockVar is not accessible here
+// if (true) {
+//   let blockVar = "I'm in a block scope";
+//   console.log(blockVar); // Accessing blockVar is allowed
+// }
+//console.log(blockVar); // ReferenceError: blockVar is not defined
