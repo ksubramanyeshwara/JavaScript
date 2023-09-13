@@ -177,7 +177,7 @@ Generator Function (ES6+)
 
 
 /**
- * Passing Object into a function
+ * Passing Array into a function
 */
 // const studentScore = [87, 72, 95, 74, 91, 83];
 // function handleArray(anyArray) {
