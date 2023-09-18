@@ -282,3 +282,86 @@ switch (grade) {
     Good job! You got a B.
 */
 ```
+
+## ternary operator
+
+It is also a conditional operator. It is a shorthand way to write conditional statement.
+
+```JS
+condition ? expressionIfTrue : expressionIfFalse;
+```
+
+It takes three operands.
+
+1. Condtion : Condition evalueates to either `true` or `false`.
+2. expressionIfTrue : an expression to execute if the condition is `true`
+3. expressionIfFalse : an expression to execute if the condition is `false`.
+
+***Simple Ternary Operator***
+
+```JS
+let age = 25;
+let isAdult = age >= 18 ? console.log("Yes") : console.log("No");
+
+/*
+    OUTPUT
+
+    Yes
+*/
+```
+
+In this example:
+
+Condition: age >= 18 checks if the age variable is greater than or equal to 18.
+ExpressionIfTrue: "Yes" is assigned to isAdult if the condition is true.
+ExpressionIfFalse: "No" is assigned to isAdult if the condition is false.
+
+***Ternary Operator with Operations***
+
+```JS
+let num = 10;
+let result = num % 2 === 0 ? console.log("Even") : console.log("Odd");
+
+/*
+    OUTPUT
+
+    Even
+*/
+```
+
+***Ternary Operator with Function Calls***
+
+```JS
+function greet(name) {
+    return "Hello, " + name + "!";
+}
+
+let isLoggedIn = true;
+let user = isLoggedIn ? console.log(greet("John")) : console.log("Guest");
+
+/*
+    OUTPUT
+
+    Hello, John!
+*/
+```
+
+***Nested Ternary Operators***
+
+```JS
+let score = 85;
+let grade =
+    score >= 90
+        ? console.log("A")
+        : score >= 80
+            ? console.log("B")
+            : score >= 70
+                ? console.log("C")
+                : console.log("D");
+
+/*
+    OUTPUT
+
+    B
+*/                
+```
