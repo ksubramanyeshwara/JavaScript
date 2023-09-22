@@ -365,3 +365,78 @@ let grade =
     B
 */                
 ```
+
+## Truthy and Falsy Values
+
+In JavaScript we have a primitive data type called boolean and it's value is either true or false. In JavaScript every other value is considered as truthy or falsy.
+
+Truthy and falsy values are the non-boolean values that are coerced to true or false when encountered in a Boolean context(conditional statements if, while, for, etc).
+
+***Truthy Values***
+
+`Truthy` value considered as `true` when encountered in Boolean context.
+
+All values are `truthy` unless they are defined as `falsy`.
+
+- true
+- Non-zero numbers
+- Non-empty strings
+- Objects
+- Arrays
+- Functions
+- Infinity and -Infinity
+- Symbols
+
+```JS
+if (true) {
+    console.log("This will be executed.");
+}
+
+if (42) {
+    console.log("This will be executed.");
+}
+
+if ("Hello" && [1, 2, 3]) {
+    console.log("This will be executed.");
+}
+
+/*
+    OUTPUT
+
+    This will be executed.
+    This will be executed.
+    This will be executed.
+*/
+```
+
+***Falsy Values***
+
+`Falsy` value considered as `false` when encountered in Boolean context.
+
+- false
+- 0 or -0
+- 0n
+- ""
+- null
+- undefined
+- NaN
+
+```JS
+if (false) {
+    console.log("This won't be executed.");
+}
+
+if (0) {
+    console.log("This won't be executed.");
+}
+
+if ("" || null || undefined) {
+    console.log("This won't be executed.");
+}
+
+/*
+    OUTPUT
+
+
+*/
+```
