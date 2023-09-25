@@ -26,7 +26,9 @@ Loops helps you to execute a block of code frequently until a specific conditio
 
 ## for loop
 
-For loop used when we know the number of iterations. It has three components
+For loop used when we know the number of iterations. It will repeat the block of code till the condition is true and when the condition becomes false then the loop will be terminated .
+
+It has three components
 
 - initialization,
 - condition, and
@@ -48,11 +50,40 @@ for (let i = 0; i < 5; i++) {
 */
 ```
 
-![Function Structure](./for-loop-flow-diagram.webp)
+![Function Structure](./for%20loop.png)
 
 - First counter variable is initialized,
 - then counter variable is compared with the condition
 - if the condtion is true then loop will be executed and counter varible will be updated
 - if the condition is false then control will exit from the loop.
 
-<!-- Nested for loop shold be done -->
+***Nested for loop***
+
+Using `for loop` inside an `for loop`
+
+```JS
+const height = 5;
+for (let i = 1; i <= height; i++) {
+    for (let j = 1; j <= i; j++) {
+        process.stdout.write("* ")
+    }
+    console.log();
+}
+
+/*
+  OUTPUT
+
+  *
+  * *
+  * * *
+  * * * *
+  * * * * *
+
+*/
+```
+
+## while loop
+
+While loops are useful when you are uncertain about the number of iterations in advance. such as reading data from a stream.
+
+It will execute a block of code repeatedly until given condtion is true. When the given condition becomes false loop will get terminated.
