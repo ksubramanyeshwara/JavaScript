@@ -34,6 +34,8 @@ It has three components
 - condition, and
 - increment/decrement, all separated by semicolons.
 
+![for loop](./for.png)
+
 ```JS
 for (let i = 0; i < 5; i++) {
   console.log(i);
@@ -50,7 +52,7 @@ for (let i = 0; i < 5; i++) {
 */
 ```
 
-![Function Structure](./for%20loop.png)
+In the above example,
 
 - First counter variable is initialized,
 - then counter variable is compared with the condition
@@ -87,3 +89,77 @@ for (let i = 1; i <= height; i++) {
 While loops are useful when you are uncertain about the number of iterations in advance. such as reading data from a stream.
 
 It will execute a block of code repeatedly until given condtion is true. When the given condition becomes false loop will get terminated.
+
+![while loop](./while.png)
+
+```JS
+/* Printing number from 1 to 5 */
+let count = 1;
+while (count <= 5) {
+    console.log(count);
+    count++;
+}
+
+/* Printing number from 5 to 1 */
+let count1 = 5;
+while (count1 >= 1) {
+    console.log(count1);
+    count1--;
+}
+
+/*
+  OUTPUT
+
+  1
+  2
+  3
+  4
+  5
+
+  5
+  4
+  3
+  2
+  1
+*/
+```
+
+```JS
+/* Traversing array value */
+let superHeros = ["Iron Man", "Thor", "Hulk", "Captain America", "Flash", "Batman"];
+
+while (superHeros.length < superHeros.length + 1) {
+    console.log(superHeros);
+    superHeros++;
+}
+
+/*
+  OUTPUT
+
+  [ 'Iron Man', 'Thor', 'Hulk', 'Captain America', 'Flash', 'Batman' ]
+*/
+```
+
+## do while loop
+
+It will execute a block of code repeatedly until given condtion is true. When the given condition becomes false loop will get terminated.
+
+In the do-while loop, the condition is checked after executing the loop. So, even if the condition is false, the code block will be executed for at least one time.
+
+```JS
+let num = 5;
+do {
+    console.log(num);
+    num++;
+} while (num < 5);
+
+/*
+  OUTPUT
+
+   5
+*/
+```
+
+In the above example,
+
+You can see even if the condition is false, loop is executed atleast once.
