@@ -146,6 +146,8 @@ It will execute a block of code repeatedly until given condtion is true. When th
 
 In the do-while loop, the condition is checked after executing the loop. So, even if the condition is false, the code block will be executed for at least one time.
 
+![do..while](./dowhile.png)
+
 ```JS
 let num = 5;
 do {
@@ -163,3 +165,93 @@ do {
 In the above example,
 
 You can see even if the condition is false, loop is executed atleast once.
+
+## break and continue
+
+`break` and `continue` are the flow control statements within loops.
+
+***break***
+
+`break` statement terminates the current loop or switch statement.
+
+When a `break` statement is encountered inside `loop` or `switch`, it will immediatly transfers program control to the next statement which is outside the `loop` or `switch`.
+
+![break](./break-in-javascript.webp)
+
+```JS
+//using for loop
+for (let i = 1; i <= 10; i++){
+    if (i === 5) {
+        break;
+    }
+    console.log(i);
+}
+
+//using switch case
+let x = 2;
+switch (x) {
+    case 1:
+        console.log("x = 1");
+        break;
+    case 2:
+        console.log("x = 2");
+        break;
+    case 3:
+        console.log("x = 3");
+        break;
+    default:
+        console.log("nothing match");
+}
+
+/*
+  OUTPUT
+  1
+  2
+  3
+  4
+  x = 2
+*/
+```
+
+***continue***
+
+The continue statement is used to skip the current iteration of the loop and jump to the next iteration.
+
+It is useful when you want to skip certain iterations based on a condition, but you don't want to exit the loop entirely.
+
+![continue](./continue-in-javascript.webp)
+
+```JS
+//Skip even numbers in a loop
+for (let i = 0; i < 10; i++) {
+    if (i % 2 === 0) {
+        continue;
+    }
+    console.log(i);
+}
+
+//Skip odd numbers in a loop
+let i = 0;
+while (i <= 10) {
+    i++;
+    if (i % 2 === 0) {
+        console.log(i);
+    }
+    continue;
+}
+
+/*
+  OUTOPUT
+
+  1
+  3
+  5
+  7
+  9
+  2
+  4 
+  6
+  8
+  10
+*/
+```
