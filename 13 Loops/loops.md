@@ -34,7 +34,7 @@ It has three components
 - condition, and
 - increment/decrement, all separated by semicolons.
 
-![for loop](./for.png)
+![for loop](./images/for.png)
 
 ```JS
 for (let i = 0; i < 5; i++) {
@@ -90,7 +90,7 @@ While loops are useful when you are uncertain about the number of iterations in 
 
 It will execute a block of code repeatedly until given condtion is true. When the given condition becomes false loop will get terminated.
 
-![while loop](./while.png)
+![while loop](./images/while.png)
 
 ```JS
 /* Printing number from 1 to 5 */
@@ -146,7 +146,7 @@ It will execute a block of code repeatedly until given condtion is true. When th
 
 In the do-while loop, the condition is checked after executing the loop. So, even if the condition is false, the code block will be executed for at least one time.
 
-![do..while](./dowhile.png)
+![do..while](./images/dowhile.png)
 
 ```JS
 let num = 5;
@@ -176,7 +176,7 @@ You can see even if the condition is false, loop is executed atleast once.
 
 When a `break` statement is encountered inside `loop` or `switch`, it will immediatly transfers program control to the next statement which is outside the `loop` or `switch`.
 
-![break](./break-in-javascript.webp)
+![break](./images/break-in-javascript.webp)
 
 ```JS
 //using for loop
@@ -219,7 +219,7 @@ The continue statement is used to skip the current iteration of the loop and jum
 
 It is useful when you want to skip certain iterations based on a condition, but you don't want to exit the loop entirely.
 
-![continue](./continue-in-javascript.webp)
+![continue](./images/continue-in-javascript.webp)
 
 ```JS
 //Skip even numbers in a loop
@@ -253,5 +253,211 @@ while (i <= 10) {
   6
   8
   10
+*/
+```
+
+## for...of
+
+'for...of' loop allows you to iterate over iterable objects (arrays, sets, maps, strings etc).
+
+The 'for...of' loop works with any iterable object, and it automatically terminates when all elements in the iterable have been processed.
+
+```JS
+for (varible of iterable){
+    //statement
+}
+```
+
+- variable: A variable that represents the current element's value in each iteration.
+- iterable: An iterable object, that represents sequence of values on which the loop operates.
+- statement: A statement to be executed on every iteration.
+
+***Iterating Over an Array***
+
+```JS
+//Iterating over an array
+const evenNumbers = [2, 4, 6, 8, 10];
+for (const eveNumbs of evenNumbers) {
+    console.log(eveNumbs);
+}
+
+//iterating over string
+let greetings = "Hello World";
+for (const greet of greetings) {
+    if (greet === " ") {
+        continue;
+    }
+    console.log(greet);
+}
+
+//Iterating Over a Map
+const myMap = new Map();
+myMap.set('name', 'John');
+myMap.set('age', 30);
+for (const [key, value] of myMap) {
+    console.log(`${key}: ${value}`);
+}
+
+/*
+    OUTPUT
+    2
+    4
+    6   
+    8
+    10
+    H
+    e
+    l
+    l
+    o
+    W
+    o
+    r
+    l
+    d
+    name: John
+    age: 30
+*/
+```
+
+## for...in
+
+'for...of' loop allows you to iterate over the [enumerable](https://www.geeksforgeeks.org/what-does-enumerable-property-mean-in-javascript/) properties of an object.
+
+```JS
+for (variable in object){
+    //statement
+}
+```
+
+- variable: A variable that represents the current element's value in each iteration.
+- object: Name of an object whose properties will be iterated through.
+- statement: A statement to be executed on every iteration.
+
+```JS
+//using object
+const programName = {
+    js: 'JavaScript',
+    py: 'Python',
+    rb: 'Ruby'
+}
+//to get key
+for (const key in programName) {
+    console.log(key);
+}
+//to get value of an object
+for (const key in programName) {
+    console.log(programName[key]);
+}
+// to get and value of an object
+for (const key in programName) {
+    console.log(`${key} is shortcut for ${programName[key]}`);
+}
+
+//using array
+const oddNumbers = [1, 3, 5, 7, 9];
+//to get keys
+for (const key in oddNumbers) {
+    console.log(key);
+}
+//to get values
+for (const key in oddNumbers) {
+    console.log(oddNumbers[key]);
+}
+/*
+    OUTPUT
+
+    js
+    py
+    rb
+    JavaScript
+    Python
+    Ruby
+    js is shortcut for JavaScript
+    py is shortcut for Python
+    rb is shortcut for Ruby
+    
+    0
+    1
+    2
+    3
+    4
+
+    1
+    3
+    5
+    7
+    9
+*/
+```
+
+## Array.forEach()
+
+It is a higher-order function that loops through an array and calls a callback function for each element. It is also considered as method on the array.
+
+The callback function can perform any operation on the element, such as logging it to the console, modifying it in place, or returning a new value.
+
+```JS
+array.forEach(function(currentValue, index, array) {
+  // code to be executed for each element
+});
+```
+
+- currentValue: The current element being processed in the array.
+- index (optional): The index of the current element being processed.
+- array (optional): The array that forEach() is being called on.
+
+```JS
+let myStates = ["Karnataka", "Andra Pradesh", "Goa", "Tamilnadu", "Telangana", "Kerala"]
+
+//Normal function
+myStates.forEach(function (state) {
+    console.log(state);
+});
+console.log();
+//arrow function
+myStates.forEach((state) => {
+    console.log(state);
+});
+console.log();
+//
+let printMe = (item) => {
+    console.log(item);
+}
+myStates.forEach(printMe)
+/*
+    OUTPUT
+
+    Karnataka
+    Andra Pradesh
+    Goa
+    Tamilnadu
+    Telangana
+    Kerala
+
+    Karnataka
+    Andra Pradesh
+    Goa
+    Tamilnadu
+    Telangana
+    Kerala
+
+    Karnataka
+    Andra Pradesh
+    Goa
+    Tamilnadu
+    Telangana
+    Kerala
+*/
+```
+
+***Accessing objects inside an array***
+
+```JS
+
+/*
+    OUTPUT
+
+    
 */
 ```
