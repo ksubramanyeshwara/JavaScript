@@ -56,7 +56,7 @@ An array is a single variable that can be used to store elements of different da
     */
     ```
 
-***Creating an array with undefined items***
+## Creating an array with undefined items
 
 ```JS
 let arrayNumber = new Array(5);
@@ -69,7 +69,7 @@ console.log(arrayNumber);
 */
 ```
 
-***Accessing array elements***
+## Accessing array elements
 
 Any element of an array can be accessed through index number. Index starts from 0.
 
@@ -87,7 +87,7 @@ console.log(southernStates[0]);
 */
 ```
 
-***Adding an element to the end of an Array***
+## Adding an element to the end of an Array
 
 ```JS
 console.log("Before adding a value",southernStates);
@@ -103,7 +103,7 @@ console.log("After adding a value",southernStates);
 */
 ```
 
-***Replacing the element in any position from an Array***
+## Replacing the element in any position from an Array
 
 ```JS
 console.log("Before replacing a value",frontendDevelopment);
@@ -134,7 +134,7 @@ console.log("After replacing a value",frontendDevelopment);
 */
 ```
 
-***Deleting an array element from any position***
+## Deleting an array element from any position
 
 ```JS
 let numbers = [1, 2, 3, 4, 5];
@@ -213,7 +213,7 @@ Let's take an array as exmple for our methods
 const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
 ```
 
-- ***array.push()***
+- ### ***array.push()***
 
     The specified element is inserted at the end of an array. Length of an array will be changed.
 
@@ -250,7 +250,7 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     */
     ```
 
-- ***array.pop()***
+- ### ***array.pop()***
 
     Removes the last element of an array. Length of an array will be changed.
 
@@ -270,7 +270,7 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     */
     ```
 
-- ***array.unshift()***
+- ### ***array.unshift()***
 
     Adds the specified elements to the beginning of an array.
 
@@ -288,7 +288,7 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     */
     ```
 
-- ***array.shift()***
+- ### ***array.shift()***
 
     Removes the first element from an array. This method changes the length of the array.
 
@@ -306,7 +306,7 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     */
     ```
 
-- ***array.includes()***
+- ### ***array.includes()***
 
     Determines whether an array includes a certain value among its entries. Returns `true` or `false`. It is case sensitive.
 
@@ -327,7 +327,7 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     */
     ```
 
-- ***array.indexof()***
+- ### ***array.indexof()***
 
     Returns the first index of a specified element. Returns -1 if the element is not found.
     By default search starts from first element and ends at the last element.
@@ -350,7 +350,7 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     */
     ```
 
-- ***array.join()***
+- ### ***array.join()***
 
     Returns an array as a string. It does not change the original array. Any seperator can be specified. The default is comma(,).
 
@@ -369,7 +369,7 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     */
     ```
 
-- ***array.slice()***
+- ### ***array.slice()***
 
     Returns a [shallow copy](https://developer.mozilla.org/en-US/docs/Glossary/Shallow_copy) of a selected elements in an array, as a new array. The original remains unchanged.
     Selects from a user specified start index, up to a user specified end index(end index is not included).
@@ -396,7 +396,7 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     */
     ```
 
-- ***array.splice()***
+- ### ***array.splice()***
 
     Changes the contents of an array by removing or replacing existing elements and/or adding new elements.
 
@@ -464,7 +464,7 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     */
     ```
 
-- ***array.concat()***
+- ### ***array.concat()***
 
     Used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
 
@@ -490,7 +490,7 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     */
     ```
 
-- ***spread operator***
+- ### ***spread operator***
 
     ```JS
     const array1 = ['a', 'b', 'c'];
@@ -515,7 +515,7 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     */
     ```
 
-- ***array.flat(depth)***
+- ### ***array.flat(depth)***
 
     Creates a new array with all sub-array elements concatenated into it. We can also specify how deep a nested array should be flattened.
 
@@ -534,7 +534,7 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     */
     ```
 
-- ***Array.isArray()***
+- ### ***Array.isArray()***
 
     determines whether the passed value is an Array or not.
 
@@ -556,7 +556,7 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     */
     ```
 
-- ***Array.from()***
+- ### ***Array.from()***
 
     Creates a new, shallow-copied Array instance from an iterable or array-like object.
 
@@ -572,7 +572,7 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     */
     ```
 
-- ***Array.of()***
+- ### ***Array.of()***
 
     Creates a new Array instance from the given arguments.
 
@@ -593,7 +593,7 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     */
     ```
 
-- ***array.copyWithin(Target, start, end)***
+- ### ***array.copyWithin(Target, start, end)***
 
     Copies array elements from one position to another in the given array. It keeps it's original length.
 
@@ -625,9 +625,7 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
     */
     ```
 
-- ***array.reduce()***
-
-- ***array.fill(value, start, end)***
+- ### ***array.fill(value, start, end)***
 
     Fills an array with specified elements. It can fill entire array or part of an array. It overwrites the original array.
 
@@ -704,3 +702,155 @@ const myArray = new Array(1, 2, 3, "Mysuru", "Honnavara");
         ];
     */
     ```
+
+- ### ***array.filter()***
+
+    The array.filter() method in JavaScript is used to create a new array containing elements from the original array that satisfy a given condition. It does not modify the original array but instead creates and returns a new array with the filtered elements.
+
+    This method takes a callback function as an argument, which is executed for each element in the array. If the callback function returns true, the element is included in the new array; otherwise, it is excluded.
+
+    ```JS
+    array.filter(callback(element, index, arr));
+    ```
+
+  - ***callback***: A function that will be called for each element in the array.
+  - ***element***: The current element being processed.
+  - ***index*** (optional): The index of the current element in the array.
+  - ***array*** (optional): The array that filter was called upon.
+
+  ```JS
+    const oddNumbers = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
+
+    //normal function declaration
+    // const newOddNumbers = oddNumbers.filter(function (num) {
+    //     return num;
+    // })
+
+    //arrow function declaration
+    const newOddNumbers = oddNumbers.filter((num) => {
+        return num;
+    })
+    console.log(newOddNumbers);
+
+    const newOddNumbers1 = oddNumbers.filter((num) => {
+        if (num > 5 && num < 13) {
+            return num;
+        }
+
+    })
+    console.log(newOddNumbers1);
+
+    //Complex Example
+
+    const books = [
+        { title: 'Book One', genre: 'Fiction', publish: 1981, edition: 2004 },
+        { title: 'Book Two', genre: 'Non-Fiction', publish: 1992, edition: 2008 },
+        { title: 'Book Three', genre: 'History', publish: 1999, edition: 2007 },
+        { title: 'Book Four', genre: 'Non-Fiction', publish: 1989, edition: 2010 },
+        { title: 'Book Five', genre: 'Science', publish: 2009, edition: 2014 },
+        { title: 'Book Six', genre: 'Fiction', publish: 1987, edition: 2010 },
+        { title: 'Book Seven', genre: 'History', publish: 1986, edition: 1996 },
+        { title: 'Book Eight', genre: 'Science', publish: 2011, edition: 2016 },
+        { title: 'Book Nine', genre: 'Non-Fiction', publish: 1981, edition: 1989 },
+    ];
+
+    //let userBooks = books.filter((bk) => bk.genre === 'History')
+
+    let userBooks = books.filter((bk) => {
+        return bk.publish >= 1995 && bk.genre === "History"
+    })
+    console.log(userBooks);
+
+    /*
+        OUTPUT
+
+        [
+        1,  3,  5,  7,  9,
+        11, 13, 15, 17, 19
+        ]
+        [ 7, 9, 11 ]
+
+        [
+        {
+        title: 'Book Three',
+        genre: 'History',
+        publish: 1999,
+        edition: 2007
+        }
+        ]
+    */
+    ```
+
+    >While returing the value we need to explicitly add `return` keyword if we start a scope in a callback function.
+
+- ### ***Array.map()***
+
+    `Array.map()` allows you to create a new array by applying a given function to each element of an array. It doesn't modify the original array; instead, it returns a new array after applying a given function to each element of an array.
+
+    ```JS
+    array.map(callback(currentValue, index, array));
+    ```
+
+    ```JS
+    const myNumers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    const newNums = myNumers.map((num) => { return num + 10 })
+    //chaining multiple Array.map() and a Array.filter()
+    const newNums1 = myNumers
+        .map((num) => num * 10)
+        .map((num) => num + 1)
+        .filter((num) => num >= 40);
+    console.log(newNums);
+    console.log(newNums1);
+    /*
+        OUTPUT
+
+        [
+        11, 12, 13, 14, 15,
+        16, 17, 18, 19, 20
+        ]
+        [
+        41, 51,  61, 71,
+        81, 91, 101
+        ]
+    */
+    ```
+
+    > What's the difference between `Array.filter()` and `Array.map()`
+    >
+    >`Array.filter()` is used when you want to filter an array and create a new array containing only the elements that meet a specific condition.
+    >
+    >`Array.map()` is used when you want to transform each element of an array and create a new array containing the transformed elements.
+    >
+    >Both methods do not modify the original array; they return new arrays with the desired results.
+    You can use them in combination or separately, depending on your needs.
+
+- ### ***Array.reduce()***
+
+    It is an higher order function. It is used for processing and accumulating elements of an array.It allows you to iterate over an array and reduce it to a single value.
+
+    ```JS
+    array.reduce(callbackFn, initialValue)
+    ```
+
+  - ***callback***: A function that gets executed on each element of the array. It takes two parameters.
+
+    - ***accumulator***: This is the accumulated result of the previous iterations.
+    - ***currentValue***: This is the current element being processed in the array.
+
+  - ***initialValue (optional)***: An initial value for the accumulator. If provided, the accumulator starts with this value; otherwise, it takes the first element of the array as its initial value.
+
+```JS
+//with iniial value as 0
+const numbers = [1, 2, 3, 4, 5];
+const sum = numbers.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+}, 0);
+console.log(sum);
+
+/*
+    OUTPUT
+
+    15
+*/
+```
+  
