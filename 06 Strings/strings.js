@@ -1,6 +1,23 @@
-//String is sequence of characters
-
+/*
+Creating a string using string literals
+*/
+//double quote
 const languageName = "JavaScript";
+//single quote
+let numberAsString = '12345';
+//backticks
+let greeting = `Hello World!`;
+console.log(`Strings are ${languageName},  ${numberAsString}, ${greeting}`)
+console.log(typeof languageName, typeof numberAsString, typeof greeting);
+
+
+/*
+Creating a string using String constructor
+*/
+let booleanValue = String('true or false');
+console.log(booleanValue);
+console.log(typeof booleanValue);
+
 
 //accessing string methods
 //accessing a letter through index
@@ -18,7 +35,7 @@ console.log(study.at(-4));//r
 console.log();
 
 //string.charAt() - To get the Character at perticular index
-console.log(languageName.charAt(5));//x
+console.log("charAt()",languageName.charAt(5));//x
 console.log();
 
 //string.concat() -	Join two or more strings together in JavaScript.
