@@ -1,10 +1,10 @@
 # Objects
 
-In JavaScript, an object is like a container that can hold various properties (which ara mutable) and methods (functions) as a single unit.
+In JavaScript, an object is like a container that can hold various properties (which are mutable) and methods (functions) as a single unit.
 
 In JavaScript, an object is an unordered collection of key-value pairs. Each key-value pair is called a property.
 
-1. Properties: Properties are the characteristics of an object. They are defined using a key-value pair. The key property is an identifier (either a name, a number, or a string literal) And the value of a property can be any value.  (such as numbers, strings, arrays, other objects, or even functions).
+1. Properties: Properties are the characteristics of an object. They are defined using a key-value pair. The key property is an identifier (either a name, a number, or a string literal) And the value of a property can be any value. (such as numbers, strings, arrays, other objects, or even functions).
 
 2. Methods: Methods are functions that are stored as properties within an object. These functions can be executed (called) using the object they belong to. Methods allow objects to perform actions or behaviors. Methods are defined in the same way as properties, but their values are functions.
 
@@ -26,23 +26,34 @@ Javascript is an object-based language, everything in javascript is an object or
 
 ## Creating an Object
 
-There are 4 ways to create objects in JavaScript
+There are 5 ways to create objects in JavaScript
 
-1. Using Object Literals (Object initializers)
-2. Creating object with Object.create() method
+1. Using Object Literals (Object Initializers)
+2. By creating instance of the object using new keyword
 3. Creating object with a constructor function
-4. By creating instance of the object using new keyword
+4. Creating object with Object.create() method
 5. Using ES6 classes
 
-Among all ways to create objects in javascript, the most common way is the object literal.
+**_Among all ways to create objects in javascript, the most common way is the object literal._**
 
-***Using Object Literals (Object initializers)***
+## Using Object Literals (Object Initializers)
 
 ```JS
 const obj = {
 property1: value1, // property name may be an identifier
 2: value2, // or a number
 "property n": value3, // or a string
+};
+```
+
+```JS
+const JsUser = {
+    name: "Subramanya",
+    age: 18,
+    location: "Bengaluru",
+    email: "Subramanya@google.com",
+    isLoggedIn: false,
+    lastLoginDays: ["Monday", "Saturday"],
 };
 console.log(JsUser);
 
@@ -55,47 +66,33 @@ console.log(JsUser);
      location: 'Bengaluru',
      email: 'Subramanya@google.com',
      isLoggedIn: false,
-     lastLoginDays: [ 'Monday', 'Saturday' ] 
+     lastLoginDays: [ 'Monday', 'Saturday' ]
     }
 */
 ```
 
-***Creating object with `Object.create()` method***
-The `Object.create()` method is used to create an object from an existing object. It creates a new object with the same properties as the existing object.
+## By creating instance of the object using `new` keyword
 
-It is a singleton object.
+This method is similar to other class based language, ex Java. In this, the object is created using the ‘new’ keyword.
 
 ```JS
-let person = {
-  firstname: "steve",
-  lastname: "jobs",
-  fullName: function() {
-    return "My name is " + this.firstname + " " + this.lastname;
-  }
-}
-// create a new object
-let newPerson = Object.create(person);
-// printing just object
-console.log(newPerson);// it will not show the properties because all the properties are hidden under prototype and can access them as regular properties.
-console.log(newPerson.fullName());
+let person = new Object();
+person.name = "K Subramanyeshwara";
+person.age = 26;
+person.getDetails = function(){
+  return `${this.name} is ${this.age} years old`;
+};
 
-// change the value of the new object
-newPerson.firstname = "K";
-newPerson.lastname = "Subramanyeshwara";
-
-console.log(newPerson.fullName());
+console.log(person.getDetails());
 
 /*
-
     OUTPUT
 
-    {}
-    My name is steve jobs
-    My name is K Subramanyeshwara 
+    K Subramanyeshwara is 26 years old
 */
 ```
 
-***Creating object with a constructor function***
+## Creating object with a constructor function
 
 When you want to create multiple objects where the objects share same design.
 
@@ -110,6 +107,7 @@ function Laptop(brand, processor, ram, gpu) {
     this.ram = ram;
     this.gpu = gpu;
 }
+// here brand, ram, cpu are the keys
 const laptop1 = new Laptop("Lenovo", "AMD", 24, "1024mb");
 const laptop2 = new Laptop("Dell", "Intel", 16, "1024mb");
 console.log(laptop1);
@@ -148,27 +146,44 @@ console.log(person1.fullName());
 */
 ```
 
-***By creating instance of the object using `new` keyword***
-This method is similar to other class based language, ex Java. In this, the object is created using the ‘new’ keyword.
+## Creating object with `Object.create()` method
+
+The `Object.create()` method is used to create an object from an existing object. It creates a new object with the same properties as the existing object.
+
+It is a singleton object.
 
 ```JS
-let person = new Object();
-person.name = "K Subramanyeshwara";
-person.age = 26;
-person.getDetails = function(){
-  return `${this.name} is ${this.age} years old`;
-};
+let person = {
+  firstname: "steve",
+  lastname: "jobs",
+  fullName: function() {
+    return "My name is " + this.firstname + " " + this.lastname;
+  }
+}
+// create a new object
+let newPerson = Object.create(person);
+// printing just object
+console.log(newPerson);// it will not show the properties because all the properties are hidden under prototype and can access them as regular properties.
+console.log(newPerson.fullName());
 
-console.log(person.getDetails());
+// change the value of the new object
+newPerson.firstname = "K";
+newPerson.lastname = "Subramanyeshwara";
+
+console.log(newPerson.fullName());
 
 /*
+
     OUTPUT
 
-    K Subramanyeshwara is 26 years old 
+    {}
+    My name is steve jobs
+    My name is K Subramanyeshwara
 */
 ```
 
-***Using ES6 classes***
+## Using ES6 classes
+
 ES6 supports class concept like any other object oriented language.
 
 The class is used to create an object constructor.
@@ -203,7 +218,7 @@ console.log(person.greet());
 1. Using the dot operator.
 2. Using the bracket operator.
 
-***dot operator***
+**_dot operator_**
 
 Using `dot operator` you can acess the properties of the object by writing the object's name, a dot (`.`), and the property name.
 
@@ -227,7 +242,7 @@ console.log(myCar.model);
 */
 ```
 
-***bracket operator***
+**_bracket operator_**
 
 Another way to access the properties of an object is `bracket operator`.
 
@@ -254,7 +269,7 @@ console.log(Laptop["RAM"]);
 */
 ```
 
-***Difference between dot (.) and bracket ( [ ] ) notations***
+**_Difference between dot (.) and bracket ( [ ] ) notations_**
 
 Dot Notation only allows static keys while Bracket Notation accepts dynamic keys.
 
@@ -264,7 +279,7 @@ Dynamic key here means that the key is evaluated from an expression.
 
 Read More on [freeCodeCamp](https://www.freecodecamp.org/news/dot-notation-vs-square-brackets-javascript/#:~:text=Differences%20between%20Dot%20Notation%20and,is%20evaluated%20from%20an%20expression.)
 
-***Using symbol as object-key***
+**_Using symbol as object-key_**
 
 ```JS
 const mySymbl = Symbol("Key");
@@ -316,13 +331,13 @@ console.log(Laptop);
 /*
   OUTPUT
 
-  { brand: 'Samsung', processor: 'Snapdragon', RAM: 24, gpu: '1024mb' }        
-  { brand: 'Samsung', processor: 'Snapdragon', RAM: 24, gpu: '2048mb' }        
+  { brand: 'Samsung', processor: 'Snapdragon', RAM: 24, gpu: '1024mb' }
+  { brand: 'Samsung', processor: 'Snapdragon', RAM: 24, gpu: '2048mb' }
   { brand: 'Samsung', processor: 'AMD', RAM: 24, gpu: '2048mb' }
 */
 ```
 
-***Handling the non-existing property***
+**_Handling the non-existing property_**
 
 Retrieving the property which does not exist inside the obj will return undefined.
 
@@ -367,14 +382,14 @@ console.log(Person);
 
   {
    firstName: 'K',
-   lastName: 'Subramanyeshwara',     
+   lastName: 'Subramanyeshwara',
    age: 26,
    location: 'Bengaluru',
    email: 'k@remote.com'
   }
   {
    firstName: 'K',
-   lastName: 'Subramanyeshwara',     
+   lastName: 'Subramanyeshwara',
    age: 26,
    location: 'Bengaluru',
    email: 'k@remote.com',
@@ -382,11 +397,11 @@ console.log(Person);
   }
   {
    firstName: 'K',
-   lastName: 'Subramanyeshwara',     
+   lastName: 'Subramanyeshwara',
    age: 26,
    location: 'Bengaluru',
    email: 'k@remote.com',
-   socialMediaPresence: true,        
+   socialMediaPresence: true,
    married: false
   }
 */
@@ -417,7 +432,7 @@ console.log(Car);
 
 ## Checking if property or method exist in object
 
-***using `in` operator***
+**_using `in` operator_**
 
 `in` operator will check whether the given property exist or not. It will look for the property in the prototype chain also.
 
@@ -444,7 +459,7 @@ console.log("getDetails" in User);
 */
 ```
 
-***hasOwnProperty()***
+**_hasOwnProperty()_**
 
 `hasOwnProperty()` operator will check whether the given property or method exist or not. It will not check for the properties present in the prototype chain.
 

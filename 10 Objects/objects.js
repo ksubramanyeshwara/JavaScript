@@ -1,18 +1,19 @@
-//Using Object Literals
-
-// const JsUser = {
-//     name: "Subramanya",
-//     age: 18,
-//     location: "Bengaluru",
-//     email: "Subramanya@google.com",
-//     isLoggedIn: false,
-//     lastLoginDays: ["Monday", "Saturday"]
-// }
+/*
+Using Object Literals
+*/
+const JsUser = {
+  name: "Subramanya",
+  age: 18,
+  location: "Bengaluru",
+  email: "Subramanya@google.com",
+  isLoggedIn: false,
+  lastLoginDays: ["Monday", "Saturday"],
+};
 // console.log(JsUser);
 
-
-
-//Creating object with a constructor function
+/*
+Creating object with a constructor function
+*/
 // function Laptop(brand, processor, ram, gpu) {
 //     this.brand = brand;
 //     this.processor = processor;
@@ -35,9 +36,9 @@
 // let person1 = new Person("K", "Subramanyeshwara", 25);
 // console.log(person1.fullName());
 
-
-
-// prototype object
+/*
+create a new object using Object.create()
+*/
 // let person = {
 //   firstname: "steve",
 //   lastname: "jobs",
@@ -45,10 +46,10 @@
 //     return "My name is " + this.firstname + " " + this.lastname;
 //   }
 // }
-// create a new object
 // let newPerson = Object.create(person);
 // printing just object
-// console.log(newPerson);// it will not show the properties because all the properties are hidden under prototype and can access them as regular properties.
+// console.log(newPerson);
+//it will not show the properties because all the properties are hidden under prototype and can access them as regular properties.
 //to see what is hidden under prototype
 // console.log(Object.getPrototypeOf(newPerson));
 // console.log(newPerson.fullName());
@@ -56,8 +57,7 @@
 // newPerson.firstname = "K";
 // newPerson.lastname = "Subramanyeshwara";
 // console.log(newPerson.fullName());
-
-
+// console.log(Object.getPrototypeOf(newPerson));
 
 // let person = new Object();
 // person.name = "K Subramanyeshwara";
@@ -66,8 +66,6 @@
 //   return `${this.name} is ${this.age} years old`;
 // };
 // console.log(person.getDetails());
-
-
 
 //ES6 classes
 // class Person {
@@ -108,8 +106,6 @@ Accessing properties of Object
 // console.log(Laptop["processor"]);
 // console.log(Laptop["RAM"]);
 
-
-
 /*
 Interview Question
 Declaring symbol inside the object as key or Using symbol as object-key
@@ -125,7 +121,6 @@ Adding predefined method to object property.
 // };
 // console.log(Laptop[mySymbl]);
 // console.log(Laptop);
-
 
 /*
 Updating an existing properties of an object
@@ -144,7 +139,6 @@ Updating an existing properties of an object
 // Laptop["processor"] = "AMD";
 // console.log(Laptop);
 
-
 /*
 Handling the non-existing property
 */
@@ -152,8 +146,8 @@ Handling the non-existing property
 //    first_name: "K Subramanyeshwara"
 // };
 // console.log(person.first_name);
+// //if we try to access non-existing 
 // console.log(person.last_name);
-
 
 /*
 Adding new properties to an object
@@ -174,7 +168,6 @@ Adding new properties to an object
 // Person["married"] = false;
 // console.log(Person);
 
-
 /*
 Deleting properties from an Object
 */
@@ -187,7 +180,6 @@ Deleting properties from an Object
 // console.log(Car);
 // delete Car.price;
 // console.log(Car);
-
 
 /*
 Checking if property or method exist in object
