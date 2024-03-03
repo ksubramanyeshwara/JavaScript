@@ -26,7 +26,9 @@ There are many wasy to create functions in JavaScript.
 7. ES6+ Method Declaration (Class Methods)
 8. Generator Function (ES6+)
 
-***Function Declaration***
+**_Function Declaration_**
+
+This is the most common and traditional way to define a function. Function declarations are hoisted, meaning they can be called before they are defined in the code.
 
 ```JS
 function greet(name) {
@@ -34,7 +36,9 @@ function greet(name) {
 }
 ```
 
-***Function Expression***
+**_Function Expression_**
+
+A function expression assigns an anonymous function (a function without a name) to a variable. Function expressions are not hoisted, so they cannot be called before they are defined.
 
 ```JS
 const greet = function(name) {
@@ -42,14 +46,14 @@ const greet = function(name) {
 };
 ```
 
-***Function Constructor***
+**_Function Constructor_**
 
 ```JS
 const greet = new Function('name', 'return `Hello, ${name}!`');
 console.log(greet("Sumanth"));
 ```
 
-***Immediately Invoked Function Expression (IIFE)***
+**_Immediately Invoked Function Expression (IIFE)_**
 
 ```JS
 (function() {
@@ -58,7 +62,7 @@ console.log(greet("Sumanth"));
 })();
 ```
 
-***Named Function Expression***
+**_Named Function Expression_**
 
 ```JS
 const multiply = function multiplyNumbers(a, b) {
@@ -66,7 +70,9 @@ const multiply = function multiplyNumbers(a, b) {
 };
 ```
 
-***Arrow Function Expression (ES6+)***
+**_Arrow Function Expression (ES6+)_**
+
+They do not have their own `this`, `arguments`, `super`, or `new.target` bindings, making them ideal for non-method functions.
 
 ```JS
 const greet = (name) => {
@@ -74,7 +80,7 @@ const greet = (name) => {
 };
 ```
 
-***ES6+ Method Declaration (Class Methods)***
+**_ES6+ Method Declaration (Class Methods)_**
 
 ```JS
 class Calculator {
@@ -84,7 +90,7 @@ class Calculator {
 }
 ```
 
-***Generator Function (ES6+)***
+**_Generator Function (ES6+)_**
 
 ```JS
 function* countToThree() {
@@ -116,11 +122,11 @@ hello();
 
 ## function parameter/arguments
 
-***function parameter***
+**_function parameter_**
 
 function parameter declared inside the parentheses(). function parameter is used inside the function body.
 
-***function arguments***
+**_function arguments_**
 
 The actual values that are passed while calling a function.
 
@@ -168,9 +174,9 @@ console.log("Multiplication of 2 numbers:",value);
 
 you can use a return statement without returning any value just to stop the execution of the function.
 
->using `console.log()` in the function dosen't mean it will return value of the function. It will just print it in the console.
+> using `console.log()` in the function dosen't mean it will return value of the function. It will just print it in the console.
 
-***specifying default value to the function parameter***
+**_specifying default value to the function parameter_**
 
 ```JS
 function userLoginMessage(username = "user") {
@@ -203,11 +209,11 @@ printValue(7, 3);
 
     a = 1 and b = undefined
     a = 7 and b = undefined
-    a = 7 and b = 3    
+    a = 7 and b = 3
 */
 ```
 
-***passing multiple values to an function***
+**_passing multiple values to an function_**
 
 Using rest operator we can pass multiple values to the single parameter of the function.
 
@@ -232,7 +238,7 @@ console.log(cartItems1);
 */
 ```
 
-***Passing Object into a function***
+**_Passing Object into a function_**
 
 ```JS
 const user = {
@@ -253,12 +259,12 @@ handleObject({
 /*
     OUTPUT
 
-    User name is K Subramanyeshwara and User age is 26 
+    User name is K Subramanyeshwara and User age is 26
     User name is Ramya and User age is 31
 */
 ```
 
-***Passing Array into a function***
+**_Passing Array into a function_**
 
 ```JS
 const studentScore = [87, 72, 95, 74, 91, 83];
