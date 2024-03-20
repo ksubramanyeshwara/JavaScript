@@ -15,9 +15,7 @@ console.log(id);
 getElementsByClassName()
 
 returns an HTMLCollection of elements that match the passed class name.
-Class names separated by whitespace, we can search for multiple class names.
 if specified clssname is not available then returns empty HTMLCollection
-
 
 This method can be applied on a document or on any specific element of the document
 ** when applied on any element like <div>, <article>, etc then only child element of the element having given class name is returned,
@@ -38,10 +36,6 @@ console.log(classBlue);
 //converting HTMLCollection to array
 const arrayHTMLCollection = Array.from(classBlue);
 console.log(arrayHTMLCollection);
-
-//selecting multiple classes
-const multiple = document.getElementsByClassName("big blue");
-console.log(multiple);
 
 /*
 
@@ -75,7 +69,6 @@ It can be used to select id, class, tag, attribute, universal
 console.log(document.querySelector("#demos"));
 const qs = document.querySelector(".demo");
 console.log(qs);
-
 
 /*
 document.querySelectorAll()
