@@ -57,7 +57,6 @@
 // console.log(fruits.indexOf("Star"));
 // console.log(fruits.indexOf(2));
 
-
 //array.join()
 // const elements = ['Fire', 'Air', 'Water'];
 // console.log(elements.join());
@@ -157,3 +156,63 @@
 
 //array.fill(value, start ,end )
 //console.log(fruits.fill(1, 2, 4));//fill the array with 1 from index 2 to 4(Exclusive)
+
+//array.find(callBackFn, thisValue)
+//array.find(function(currentValue, index, array), thisValue)
+// const numbers = [28, 46, 73, 39, 81, 19, 65, 57];
+// console.log(numbers);
+// const found = numbers.find(function (element) {
+//   return element > 45;
+// });
+// console.log("first number greater than 45 is ", found);
+// console.log("first number greater than 75 is ",
+//   numbers.find(function (element) {
+//     return element > 75;
+//   })
+// );
+
+// let books = [
+//   { book: "HTML", quantity: 5 },
+//   { book: "CSS", quantity: 7 },
+//   { book: "TailwindCSS", quantity: 3 },
+//   { book: "JavaScript", quantity: 9 },
+//   { book: "ReactJS", quantity: 1 },
+// ];
+
+// let findBook = books.find((book) => {
+//   return book.book === "JavaScript";
+// });
+// console.log(findBook);
+
+// _Array.findIndex(function(currentValue, index, arr), thisValue)
+/*
+let evenNumbers = [26, 78, 64, 18, 54];
+let index = evenNumbers.findIndex(function (eveNumber) {
+    return eveNumber > 50;
+})
+console.log(index);
+*/
+
+//array.indexOf(element, start)
+/*
+let frontendTech = ["HTML", "CSS", "TailwindCSS", "JavaScript", "ReactJS"];
+console.log(frontendTech.indexOf("CSS"));
+*/
+
+// array.join(seperator)
+/*
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log(numbers.join());
+console.log(numbers.join(" "));
+console.log(numbers.join("_"));
+*/
+
+// array.forEach()
+/*
+let numbers = [1, 2, 3, 4, 5, 6];
+numbers.forEach(function (element, index) {
+  console.log(`Element at array index ${index} is ${element}`);
+});
+*/
+
+// array.map()

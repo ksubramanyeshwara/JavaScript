@@ -68,3 +68,16 @@ const sum = numbers.reduce((accumulator, currentValue) => {
     return accumulator + currentValue;
 }, 0);
 console.log(sum);
+
+
+/*
+array.forEach(function(currentValue, index, arr))
+
+it calls a function and iterates over the elements of an array.
+The forEach() method can also be used on Maps and Sets.
+*/
+
+let students = ["Sumanth", "Sangeetha", "Karthik", "Tanisha", "Pratap"];
+students.forEach((name) => {
+    console.log(name);
+})

@@ -260,7 +260,7 @@ while (i <= 10) {
 
 'for...of' loop allows you to iterate over iterable objects (arrays, sets, maps, strings etc).
 
-The 'for...of' loop works with any iterable object, and it automatically terminates when all elements in the iterable have been processed.
+The 'for...of' loop works with any iterable object, and it automatically terminates when all elements in the iterable have been processed. It won't work with Objects.
 
 ```JS
 for (varible of iterable){
@@ -396,6 +396,8 @@ for (const key in oddNumbers) {
 It is a higher-order function that loops through an array and calls a callback function for each element. It is also considered as method on the array.
 
 The callback function can perform any operation on the element, such as logging it to the console, modifying it in place, or returning a new value.
+
+>Array.forEach() will not return any value.
 
 ```JS
 array.forEach(function(currentValue, index, array) {

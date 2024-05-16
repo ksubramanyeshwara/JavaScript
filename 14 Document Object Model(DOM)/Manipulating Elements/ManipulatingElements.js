@@ -8,9 +8,10 @@ we have to explicitly append elements to the document.
 */
 const mainDiv = document.createElement("div");
 console.log(mainDiv);
+document.body.append(mainDiv);
 
 /*
-element.innerHTML = "New Content"
+element.innerHTML = "<tag>New Content</tag>"
 
 The innerHTML is a property of the Element that allows us to get or set the HTML markup contained within the element.
 You can use innerHTML to examine the current cuntent by logging
@@ -28,7 +29,6 @@ To make the created element a part of the document, We need to attach it to the 
 1. append() - It appends the Node objects or DOMString object to the parent element.
 2. appendChild() - It can append only Node objects to the parent element.
 */
-document.body.append(mainDiv);
 
 //An example including above 3 methods
 const resource = document.createElement("p");
@@ -38,6 +38,12 @@ mainDiv.append(resource);
 //adding text using createTextNode()
 const addText = document.createTextNode("Websites");
 mainDiv.appendChild(addText);
+
+/*
+`innerHTML`: Use when you need to get or set the HTML content. It includes all the HTML tags, so you can use it to read or change the structure of the document.
+`innerText`: Use when you need the text as it appears to the user. it won't include text from hidden elements.retrieves and sets the visible text content of an element.
+`textContent`: it returns all text content, including text inside <script> and <style> elements, when you want to manipulate all text content of an element, including text inside <script> and <style> elements.
+*/
 
 /*
 node.textContent = "Text"
@@ -98,5 +104,36 @@ Removing Element
 */
 const remeoveElement = document.querySelector("li:nth-child(3)");
 remeoveElement.remove();
-const remeoveElement1 = document.getElementById("blog")
+const remeoveElement1 = document.getElementById("blog");
 remeoveElement1.remove();
+
+// element.after()
+const resources = document.querySelector("#resource");
+const paragraph = document.createElement("p");
+paragraph.innerText = "Resources to learn JavaScript";
+resources.after(paragraph);
+
+// element.prepend()
+const ppnd = document.querySelector("#resource");
+const heading = document.createElement("h1");
+heading.textContent = "Wanna Learn JavaScript?";
+ppnd.prepend(heading);
+
+// element.removeChild
+const parent = document.querySelector(".parent");
+// parent.removeChild(parent.firstChild);
+console.log(parent);
+
+const div = document.createElement("div");
+div.textContent = "Sunday";
+parent.replaceChild(div, parent.firstElementChild);
+
+const fruit = document.querySelector(".fruits");
+console.log(fruit);
+
+function addFruits(fruit) {
+  const li = document.createElement("li");
+  li.textContent = `${fruit}`;
+  document.querySelector(".fruits").appendChild(li);
+}
+addFruits("mango");

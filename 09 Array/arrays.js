@@ -20,7 +20,7 @@ frontendDevelopment[6] = "Git";
 // console.log(arrayNumber);
 // console.log();
 
-// Accessing array elements 
+// Accessing array elements
 // console.log(southernStates[1]);
 // console.log(southernStates[3]);
 // console.log(southernStates[0]);
@@ -47,8 +47,16 @@ frontendDevelopment[6] = "Git";
 //we can see that the length of an array is same before and after deleting an element.
 // console.log("Deleted Element Index",numbers[2]);
 // console.log();
-//when we delete an element using delete it will simply don't delete the index and it will be undefined. 
+//when we delete an element using delete it will simply don't delete the index and it will be undefined.
 
 //Multidimensional array
 let evenOddNumbers = [2, 4, 6, 8, 10, [1, 3, 5, 7]];
-console.log(evenOddNumbers[5][2]);
+// console.log(evenOddNumbers[5][2]);
+
+let numbers = [1, 2, 3];
+// destructuring
+// let [a, b, c, d] = numbers;
+// destructuring with default value
+let [a, b, c, d = 25] = numbers;
+console.log(c);
+console.log(d);

@@ -17,3 +17,11 @@ You can access/select elements in the DOM using JavaScript. Common methods are
 - `document.getElementsByTagName()`: Finding an element by their tag name.
 - `document.querySelector()`: Finds the first element matching a CSS selector.
 - `document.querySelectorAll()`: Finds all elements matching a CSS selector.
+
+## Traversing elements
+
+## Manipulating elements
+
+## Working with Attributes
+
+## Manipulating Element’s Styles

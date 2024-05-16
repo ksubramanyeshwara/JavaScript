@@ -49,7 +49,7 @@ console.log();
 
 /* ---------------- Maths ---------------- */
 //always converts negative number into positive
-console.log("Negative to Positive number using Math.abs()",Math.abs(-2));
+console.log("Negative to Positive number using Math.abs() -2 to ", Math.abs(-2));
 const round = Math.round(4.5); // .5 or above it will be always equal to 1
 const round1 = Math.round(4.3);
 console.log(`

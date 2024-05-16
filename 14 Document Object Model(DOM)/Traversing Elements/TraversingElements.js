@@ -29,8 +29,21 @@ console.log(parent.lastChild);
 console.log(parent.lastElementChild);
 
 //selecting parent element through child element
-const childrenDiv = document.querySelector(".day");
-console.log(childrenDiv.parentNode);
-console.log(childrenDiv.parentElement);
+const dayOne = document.querySelector(".day");
+console.log(dayOne.parentNode);
+console.log(dayOne.parentElement);
 
-//getting siblings
+/*
+getting siblings
+*/
+
+//to get next sibling use nextElementSibling attribute
+const nextSibling = document.querySelector(".dayFour"); //selecting an element
+console.log(nextSibling.nextElementSibling); //printing the next sibling of selected element
+
+// const nextSibling1 = document.querySelector(".parent:nth-child(5)"); //selecting an element
+// console.log(nextSibling1.nextElementSibling); //printing the next sibling of selected element
+
+//to get previous sibling use previousElementSibling attribute
+const previousSibling = document.querySelector(".dayFour"); //selecting an element
+console.log(previousSibling.previousElementSibling); //printing the next sibling of selected element

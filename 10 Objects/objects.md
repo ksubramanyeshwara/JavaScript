@@ -20,6 +20,36 @@ Javascript is an object-based language, everything in javascript is an object or
 - Maths is an object
 - Objects are always objects
 
+**_What is `this` referred in Object?_**
+
+The `this` keyword refers to the current object the code is being written inside. Why don't we write `object` name instead of `this`.
+
+when you only have to create a single object literal, it's not so useful. But if you create more than one, `this` enables you to use the same method definition for every object you create.
+
+Let's understand through an example,
+
+```JS
+const person1 = {
+  name: "Chris",
+  introduceSelf() {
+    console.log(`Hi! I'm ${this.name}.`);
+  },
+};
+
+const person2 = {
+  name: "Deepti",
+  introduceSelf() {
+    console.log(`Hi! I'm ${this.name}.`);
+  },
+};
+/*
+  OUTPUT
+
+  Hi! I'm Chris.
+  Hi! I'm Deepti.
+*/
+```
+
 ## JavaScript Object structure
 
 ![Object structure](./javascript-object.jpg)
@@ -486,8 +516,32 @@ console.log(User.hasOwnProperty("getDetails"));
 */
 ```
 
+## Object Destructuring
+
+It is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
+
+
 ### Resources
 
 - [Tutorials Tonigt](https://www.tutorialstonight.com/js/js-objects?expand_article=1)
 
 - [LearnersBucket](https://learnersbucket.com/tutorials/data-structures/javascript-objects-complete-reference/)
+
+
+```JS
+class Calc {
+    constructor(num1, num2) {
+      this.numberOne = num1;
+      this.numberTwo = num2;
+    }
+    addition = () => {
+      return this.numberOne + this.numberTwo;
+    };
+    subtraction = () => {
+      return this.numberOne - this.numberTwo;
+    };
+  }
+  let calculator = new Calc(1, 3);
+  const { addition } = calculator;
+  console.log(addition());
+```

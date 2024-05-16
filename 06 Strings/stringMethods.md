@@ -16,13 +16,13 @@ console.log(`String is "${languageName}" and the length is ${languageName.length
 
 ## Character access
 
-Character can be accessed 2 ways
+Character can be accessed 3 ways
 
 1. Treating string as array like object - string[stringIndex]
 2. string.at(stringIndex)
 3. string.charAt(stringIndex)
 
-***string[stringIndex]***
+**_string[stringIndex]_**
 
 It returns the character at the specified index. Can't access using negative index.
 
@@ -38,7 +38,7 @@ console.log(languageName[3]);
 */
 ```
 
-***string.at(stringIndex)***
+**_string.at(stringIndex)_**
 
 Returns the character at the specified index. It takes both positive and negative integers. Negative integers count back from the last string character.
 
@@ -56,7 +56,7 @@ console.log(study.at(-4));
 */
 ```
 
-***string.charAt()***
+**_string.charAt()_**
 
 Returns the character at the specified index. Can't access using negative index.
 
@@ -72,17 +72,17 @@ console.log(study.charAt(9));
 
 ## string.indexOf()
 
-It searches the string and returns the index of the first occurrence of the specified substring.
+To find the index/position of the substring.
 
-It returns the index of the first occurrence of `searchString`. If the occurance is not found then `-1` will be returned.
+It searches the string and returns the index of the first occurrence of the specified substring. The `indexOf()` method is case sensitive.
 
-The `indexOf()` method is case sensitive. if the `searchString` is not found then returns `-1`:
+It returns the index of the first occurrence of `searchString` if the position is not specified. If the position is specified then it returns the first occurrence of `searchString` after the position given.
+
+If the occurance is not found then `-1` will be returned. It will not take negative index.
 
 ```JS
-indexOf(searchString, position)
+string.indexOf(searchString, position)
 ```
-
-You can specify the position then first occurence from the postion will be displayed.
 
 ```JS
 let documentName = 'Mozilla Developer Network(MDN)'
@@ -101,22 +101,19 @@ console.log(paragraph.indexOf('dog', 45))
 
     40
     52
-
-    Index of the first occurance of the dog is 40    
-    Index of the second occurance of the dog is 52   
 */
 ```
 
 ## string.lastIndexOf()
 
-It searches the string and returns the index of the last occurrence of the specified substring.
+To find the position of the last occurrence of a substring in a string.
+
+It searches the string and returns the index of the last occurrence of the specified substring. The `lastIndexOf()` method is case sensitive.
 
 It returns the index of the last occurrence of `searchString`. If the occurance is not found then `-1` will be returned.
 
-The `lastIndexOf()` method is case sensitive. if the `searchString` is not found then returns `-1`:
-
 ```JS
-lastIndexOf(searchString, position)
+string.lastIndexOf(searchString, position)
 ```
 
 ```JS
@@ -136,7 +133,7 @@ console.log(str.lastIndexOf('string'))
 It is used to join two or more strings together without changing the original strings and returning a new string.
 
 ```JS
-concat(str1, str2, /* …, */ strN)
+string.concat(str1, str2, /* …, */ strN)
 ```
 
 ```JS
@@ -145,9 +142,10 @@ const learningLanguage = learning.concat(' JavaScript')
 console.log(learningLanguage);
 console.log();
 
-const mdn = 'Mozilla';
-const mdnFullForm = mdn.concat(' Developer', ' Network');
-console.log(mdnFullForm);
+const m = 'Mozilla';
+const md = 'Developer';
+const mdn = m.concat(' ', md, ' ' , 'Network');
+console.log(mdn);
 console.log();
 
 //joining 2 or more strings using string interpolation
@@ -166,45 +164,58 @@ console.log(`My name is ${myName} and My GitHub repo count is ${repoCount}`);
 
 ## string.startsWith()
 
-Whether the given string starts with the characters of the specified string or not. returns true or false
+Checks whether a string begins with the characters of a specified string. This method returns true if the string starts with the specified value, and false otherwise. It is case sensitive.
 
 ```JS
-startsWith(searchString, position)
+string.startsWith(searchString, position)
 ```
+
+`searchString`: The characters to be searched for at the start of the string.
+
+`position` (optional): The position from where searching begins for `searchString`. Defaults to 0.
 
 ```JS
 const str = "To be, or not to be, that is the question.";
-console.log(str.startsWith("To be"));
-console.log(str.startsWith("not to be"));
-console.log(str.startsWith("not to be", 10));
+console.log(str.startsWith('To'))
+console.log(str.startsWith('to'))
+console.log(str.startsWith('not to be'));
+console.log(str.startsWith('not to be', 10));
 /*
     OUTPUT
 
     true
-    true
     false
+    false
+    true
 */
 ```
 
 ## string.endsWith()
 
-Whether the given string ends with the characters of the specified string or not. returns true or false
+Whether the given string ends with the characters of the specified string or not.
+returns true or false. It is case sensitive.
 
 ```JS
-endsWith(searchString, endPosition)
+string.endsWith(searchString, endPosition)
 ```
 
+`searchString`: The characters to be searched for at the start of the string.
+
+`endPosition`:The position from where searching ends for `searchString`.
+
 ```JS
-const languageName = 'JavaScript';
-console.log(languageName.endsWith("t"));
-console.log(languageName.endsWith("S", 5));
-console.log(languageName.endsWith("t", 5));
+const sentence = 'Java is to JavaScript what Car is to Carpet';
+console.log(sentence.endsWith('Carpet'));
+console.log(sentence.endsWith('carpet'));
+console.log(sentence.endsWith('a', 15));
+console.log(sentence.endsWith('a', 25));
 /*
     OUTPUT
 
     true
-    true
     false
+    true
+    true
 */
 ```
 
@@ -213,7 +224,7 @@ console.log(languageName.endsWith("t", 5));
 Converts the entire string to lowercase.
 
 ```JS
-toLowerCase()
+string.toLowerCase()
 ```
 
 ```JS
@@ -228,10 +239,10 @@ console.log(anotherLanguageName.toLowerCase());
 
 ## string.toUpperCase()
 
-Converts the entire string to lowercase.
+Converts the entire string to uppercase.
 
 ```JS
-toUpperCase()
+string.toUpperCase()
 ```
 
 ```JS
@@ -246,21 +257,24 @@ console.log(languageName.toUpperCase());
 
 ## string.replace()
 
-It is used to replace a part of the given string with another string or a regular expression
+It is used to replace a part of the given string with another string or a regular expression. It will not alter the original string.
 
 ```JS
-replace(pattern, replacement)
+string.replace(pattern, replacement)
 ```
 
 ```JS
 const url = "https://www.subramanya.com/subramanya%219ishwara";
 console.log(url);
-console.log(url.replace("%219", "--"));
+const updatedUrl = url.replace("%219", "--");
+console.log(updatedUrl);
+console.log(url);
 /*
     OUTPUT
 
     https://www.subramanya.com/subramanya%219ishwara
-    https://www.subramanya.com/subramanya_ishwara 
+    https://www.subramanya.com/subramanya_ishwara
+    https://www.subramanya.com/subramanya%219ishwara
 */
 ```
 
@@ -269,7 +283,7 @@ console.log(url.replace("%219", "--"));
 Returns a new string after replacing all the matches of a string with a specified string/regex.
 
 ```js
-replaceAll(pattern, replacement)
+replaceAll(pattern, replacement);
 ```
 
 ```JS
@@ -311,7 +325,7 @@ console.log(languageName.includes("asd"));
 
 ## string.substring()
 
- Returns the part of this string from the given index and will print till -1 of the given index or to the end of the string if no end index is supplied.
+Returns the part of this string from the given index and will print till -1 of the given index or to the end of the string if no end index is supplied.
 
 ```JS
 substring(indexStart)
@@ -322,7 +336,7 @@ substring(indexStart, indexEnd)
 
 /*
     OUTPUT
-    
+
     JavaScript
     JavaS
     aScript
@@ -330,7 +344,7 @@ substring(indexStart, indexEnd)
 */
 ```
 
-***Using substring() with length property***
+**_Using substring() with length property_**
 
 ```JS
 const text = "Mozilla";

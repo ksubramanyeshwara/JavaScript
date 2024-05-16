@@ -59,6 +59,7 @@ console.log(tagName);
 /*
 
 document.querySelector()
+document.querySelector('input[type="password"]')
 
 The querySelector() method allows you to select the first element that matches one or more CSS selectors.
 
