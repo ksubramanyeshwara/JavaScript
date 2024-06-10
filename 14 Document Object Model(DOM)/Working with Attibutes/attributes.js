@@ -1,3 +1,14 @@
+let paraElement = document.getElementById("main-paragraph");
+console.log(paraElement.id);
+console.log(paraElement.className);
+
+let bar = document.querySelector("#main");
+console.log(bar.dataset);
+
+console.log(" ");
+console.log(" ");
+console.log(" ");
+
 /*
 The HTML attribute is a special keyword which is used inside the opening tag of the element. 
 The attribute is used to control the element's behaviour and to provide additional information to the element

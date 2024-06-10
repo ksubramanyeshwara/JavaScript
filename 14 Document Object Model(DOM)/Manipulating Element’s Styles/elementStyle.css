@@ -1,0 +1,30 @@
+.body {
+  background-color: #393939;
+  color: #79cb5e;
+}
+
+.language::first-letter {
+  color: rgb(215, 86, 63);
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.red {
+  color: #ff1515;
+}
+
+.yellow{
+    color:#e1cb03;
+}
+.bold {
+  font-weight: bolder;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.large {
+  font-size: 60px;
+}
+
+.italic{
+    font-style: italic;
+}

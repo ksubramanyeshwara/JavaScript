@@ -4,12 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Working with Attributes</title>
+    <style>
+      body {
+        background-color: #2b2b2b;
+        color: #fff;
+      }
+    </style>
   </head>
   <body>
-    <p id="myParagraph" class="para" title="paragraphOne">
+    <p id="myParagraph" title="paragraphOne" data-info="custom attribute">
       This is a paragraphOne
     </p>
 
-    <script src="./attributes.js"></script>
+    <script>
+      // set attribute
+      let para = document.getElementById("myParagraph");
+      para.setAttribute("class", "myPara");
+      para.setAttribute("style", "background-color:green");
+
+      // get attribute
+      let classAttribute = para.getAttribute("class");
+      let customAttribute = para.getAttribute("data-info");
+      console.log(classAttribute);
+      console.log(customAttribute);
+
+      // has attribute
+      let idAttr = para.hasAttribute("id");
+      let customAttr = para.hasAttribute("data-info");
+      let clasaAttr = para.hasAttribute("data-class");
+      console.log(idAttr);
+      console.log(customAttr);
+      console.log(clasaAttr);
+
+      // remove attribute
+      para.removeAttribute("id");
+      console.log(para);
+    </script>
+
+    <!-- <script src="./attributes.js"></script> -->
   </body>
 </html>

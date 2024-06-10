@@ -23,7 +23,7 @@ console.log(firstChild);
 //to get the first child with the Element node only, you can use the firstElementChild property
 console.log(parent.firstElementChild);
 
-//the lastChild property returns the first element node, text node, or comment node.
+//the lastChild property returns the last element node, text node, or comment node.
 console.log(parent.lastChild);
 //to get the last child with the Element node only, you can use the lastElementChild property
 console.log(parent.lastElementChild);
