@@ -26,10 +26,7 @@ document.getElementById("owl").addEventListener("click", function (e) {
     -- mouse
 -- timestamp - interviews
 -- defaultPrevented
--- target
--- toElement
--- srcElement
--- currentTarget
+-- target toElement srcElement currentTarget
 -- clientX, clientY
 -- screenX, screenY
 -- altkey, ctrlkey, shiftkey, keyCode

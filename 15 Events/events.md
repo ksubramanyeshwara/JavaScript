@@ -126,17 +126,17 @@ These events are triggered by network actions, like fetching a resource or creat
 
 ## Handling Events
 
-When an event is triggered the browser will call the function/piece of code that will execute to respond to that event. 
+When an event is triggered the browser will call the function/piece of code that will execute to respond to that event.
 
 This function/piece of code called as event handler or event listener. It listens to the event and responds accordingly to the event fires.
 
-Event can be handled by multilple event handlers.  If an event has multiple event handlers, all the event handlers will be executed when the event is fired. The event handlers are called in the exact order they are attached to the element.
+Event can be handled by multilple event handlers. If an event has multiple event handlers, all the event handlers will be executed when the event is fired. The event handlers are called in the exact order they are attached to the element.
 
 **Adding Event Handlers/Listener**:
 
 An event listener is a function that gets called when a specific event occurs, such as a click, mouseover, or keypress.
 
-1. Inline Event Handlers (Using on* attributes)
+1. Inline Event Handlers (Using on\* attributes)
 2. Event Listeners with addEventListener()
 3. Using the attachEvent() method (for Internet Explorer)
 
@@ -223,13 +223,165 @@ After reaching the target the event moves from the innermost element to the oute
 
 ## Event Propagation
 
-**_Event bubbling_**
+Event Propagation is a mechanism/process deciding how an event travel through the DOM tree when an event occurs. It is a process of deciding when and in which direction the event will be executed. It is a way to define the order in which the event occurs.
 
-An event starts at the most specific element and then flows upward toward the least specific element (the document or even window).
+- Bubbling
+- Capturing
+- Delegation
+
+```HTML
+<p id="para">
+    <span id="strong">Lorem ipsum dolor, <button type="button" id="btn">click me</button></span> sit amet consectetur
+    adipisicing elit. Expedita optio, ea tempora magni non iure quas sed
+    distinctio quam! Non totam accusamus veritatis architecto inventore,
+    culpa doloribus. Corporis, dolorem id.
+</p>
+```
+
+**Event bubbling**
+
+It is a default process. An event starts from the most specific element and move towards the least specific element (the document or even window).
+
+```JS
+let para = document.querySelector("#para");
+let strong = document.querySelector("#strong");
+let btn = document.querySelector("#btn");
+para.addEventListener("click", () => {
+  console.log("You have clicked on Paragraph");
+});
+strong.addEventListener("click", () => {
+  console.log("You have clicked on strong text");
+});
+btn.addEventListener("click", () => {
+  console.log("You have clicked on btn");
+});
+```
+
+An event first occurs on `button` element that was clicked. Then the event goes up the DOM tree, firing on each event along its way until it reaches the `window` object.
 
 ![JavaScript-event-bubbling](./JavaScript-event-bubbling.png)
 
+### What is the differences between event.currentTarget, event.target and this.target
 
-You can use events by attaching event listeners to HTML elements. An event listener is a function, that listens for a specific event to occur on an element and then executes some code in response.
+**event.currentTarget**
 
+It refers to the element that is currently being processed by the event handler. If there are nested elements involved then it may not refer to the original target.
 
+**event.target**
+
+It refers to the original element that triggered the event. It is the element that was clicked, focused, hovered, or otherwise interacted with.
+
+**this.target**
+
+Inside an event listener function, `this` usually refers to the element that is currently being processed by the event handler just like `event.currentTarget` in most cases.
+
+```JS
+function clik(event) {
+  alert(
+    `You clicked on ${event.currentTarget.tagName} and ${event.target.tagName} and ${this.tagName}`
+  );
+}
+```
+
+**Event Capturing**
+
+An event starts from the least specific element and move downward toward the most specific element.
+
+```JS
+para.addEventListener(
+  "click",
+  () => {
+    console.log("You have clicked on Paragraph");
+  },
+  {
+    capture: true,
+  }
+);
+strong.addEventListener(
+  "click",
+  () => {
+    console.log("You have clicked on strong text");
+  },
+  {
+    capture: true,
+  }
+);
+btn.addEventListener(
+  "click",
+  () => {
+    console.log("You have clicked on btn");
+  },
+  {
+    capture: true,
+  }
+);
+```
+
+An event first occurs on `p` element even though `button` element was clicked. Then the event goes down the DOM tree, firing on each event along its way until it reaches the last event.
+
+![JavaScript-event-capturing](./JavaScript-event-capturing.png)
+
+**`stopPropagation()`**
+
+If I want only the clicked element to trigger the event, not any other elements? You have to use `stopPropagation()` method within event handler.
+
+```JS
+para.addEventListener("click", (e) => {
+  console.log("You have clicked on Paragraph");
+  e.stopPropagation();
+});
+strong.addEventListener("click", (e) => {
+  console.log("You have clicked on strong text");
+  e.stopPropagation();
+});
+btn.addEventListener("click", (e) => {
+  console.log("You have clicked on btn");
+  e.stopPropagation();
+});
+```
+
+**`preventDefault()`**
+
+It is used to prevent the default behavior of an event. Let's understand by an example.
+
+```HTML
+<form action="" id="loginForm">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" />
+  <label for="password">Username:</label>
+  <input type="password" id="password" name="password" />
+  <button type="submit">Login</button>
+</form>
+```
+
+```JS
+document.querySelector("#loginForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  alert("Form submission prevented.");
+});
+```
+
+**Event Delegation**
+
+It is a technique to handle events efficiently. Instead of adding event listener to each element we directly add event listener to the parent element and use `.target` property of event object to call an event on perticular element. This method uses event bubbling technique to match all the child events.
+
+```HTML
+<ul id="itemList">
+  <li>Apple</li>
+  <li>Banana</li>
+  <li>Cat</li>
+  <li>Dog</li>
+</ul>
+```
+
+```JS
+let itemList = document.querySelector("#itemList");
+itemList.addEventListener("click", (e) => {
+  if (e.target.tagName === "LI") {
+    alert(e.target.textContent);
+  }
+});
+let newLi = document.createElement("li");
+newLi.textContent = "Elephant";
+itemList.appendChild(newLi);
+```

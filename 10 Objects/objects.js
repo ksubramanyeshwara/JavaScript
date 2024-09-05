@@ -1,40 +1,46 @@
 /*
 Using Object Literals
 */
-const JsUser = {
+const jsUser = {
   name: "Subramanya",
   age: 18,
   location: "Bengaluru",
   email: "Subramanya@google.com",
   isLoggedIn: false,
   lastLoginDays: ["Monday", "Saturday"],
+  userDetails: function () {
+    console.log(
+      `user name is ${this.name} and work location is ${this.location}`
+    );
+  },
 };
-// console.log(JsUser);
+jsUser.userDetails();
+console.log(jsUser);
 
 /*
 Creating object with a constructor function
 */
-// function Laptop(brand, processor, ram, gpu) {
-//     this.brand = brand;
-//     this.processor = processor;
-//     this.ram = ram;
-//     this.gpu = gpu;
-// }
-// const laptop1 = new Laptop("Lenovo", "AMD", 24, "1024mb");
-// const laptop2 = new Laptop("Dell", "Intel", 16, "1024mb");
-// console.log(laptop1);
-// console.log(laptop2);
-//prototype
-// function Person(firstname, lastname, age) {
-//   this.firstname = firstname;
-//   this.lastname = lastname;
-//   this.age = age;
-// }
-// Person.prototype.fullName = function() {
-//   return "My name is " + this.firstname + " " + this.lastname;
-// }
-// let person1 = new Person("K", "Subramanyeshwara", 25);
-// console.log(person1.fullName());
+function Laptop(brand, processor, ram, gpu) {
+  this.brand = brand;
+  this.processor = processor;
+  this.ram = ram;
+  this.gpu = gpu;
+}
+const laptop1 = new Laptop("Lenovo", "AMD", 24, "1024mb");
+const laptop2 = new Laptop("Dell", "Intel", 16, "1024mb");
+console.log(laptop1);
+console.log(laptop2);
+// prototype
+function Person(firstname, lastname, age) {
+  this.firstname = firstname;
+  this.lastname = lastname;
+  this.age = age;
+}
+Person.prototype.fullName = function () {
+  return "My name is " + this.firstname + " " + this.lastname;
+};
+let person1 = new Person("K", "Subramanyeshwara", 25);
+console.log(person1.fullName());
 
 /*
 create a new object using Object.create()
@@ -146,7 +152,7 @@ Handling the non-existing property
 //    first_name: "K Subramanyeshwara"
 // };
 // console.log(person.first_name);
-// //if we try to access non-existing 
+// //if we try to access non-existing
 // console.log(person.last_name);
 
 /*

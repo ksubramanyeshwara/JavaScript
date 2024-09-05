@@ -20,53 +20,25 @@ Javascript is an object-based language, everything in javascript is an object or
 - Maths is an object
 - Objects are always objects
 
-**_What is `this` referred in Object?_**
-
-The `this` keyword refers to the current object the code is being written inside. Why don't we write `object` name instead of `this`.
-
-when you only have to create a single object literal, it's not so useful. But if you create more than one, `this` enables you to use the same method definition for every object you create.
-
-Let's understand through an example,
-
-```JS
-const person1 = {
-  name: "Chris",
-  introduceSelf() {
-    console.log(`Hi! I'm ${this.name}.`);
-  },
-};
-
-const person2 = {
-  name: "Deepti",
-  introduceSelf() {
-    console.log(`Hi! I'm ${this.name}.`);
-  },
-};
-/*
-  OUTPUT
-
-  Hi! I'm Chris.
-  Hi! I'm Deepti.
-*/
-```
 
 ## JavaScript Object structure
 
-![Object structure](./javascript-object.jpg)
+![Object structure](./javascript-object.png)
 
 ## Creating an Object
 
 There are 5 ways to create objects in JavaScript
 
-1. Using Object Literals (Object Initializers)
-2. By creating instance of the object using new keyword
-3. Creating object with a constructor function
-4. Creating object with Object.create() method
-5. Using ES6 classes
+1. Object Literals (Object Initializers)
+2. using new keyword
+3. constructor function
+4. Object.create()
+5. ES6 classes
+6. Factory Functions
 
 **_Among all ways to create objects in javascript, the most common way is the object literal._**
 
-## Using Object Literals (Object Initializers)
+## Object Literals
 
 ```JS
 const obj = {
@@ -101,7 +73,7 @@ console.log(JsUser);
 */
 ```
 
-## By creating instance of the object using `new` keyword
+## using `new` keyword
 
 This method is similar to other class based language, ex Java. In this, the object is created using the ‘new’ keyword.
 
@@ -122,7 +94,7 @@ console.log(person.getDetails());
 */
 ```
 
-## Creating object with a constructor function
+## Constructor function
 
 When you want to create multiple objects where the objects share same design.
 
@@ -176,7 +148,7 @@ console.log(person1.fullName());
 */
 ```
 
-## Creating object with `Object.create()` method
+## `Object.create()`
 
 The `Object.create()` method is used to create an object from an existing object. It creates a new object with the same properties as the existing object.
 
@@ -544,4 +516,35 @@ class Calc {
   let calculator = new Calc(1, 3);
   const { addition } = calculator;
   console.log(addition());
+```
+
+
+**_What is `this` referred in Object?_**
+
+The `this` keyword refers to the current object the code is being written inside. Why don't we write `object` name instead of `this`.
+
+when you only have to create a single object literal, it's not so useful. But if you create more than one, `this` enables you to use the same method definition for every object you create.
+
+Let's understand through an example,
+
+```JS
+const person1 = {
+  name: "Chris",
+  introduceSelf() {
+    console.log(`Hi! I'm ${this.name}.`);
+  },
+};
+
+const person2 = {
+  name: "Deepti",
+  introduceSelf() {
+    console.log(`Hi! I'm ${this.name}.`);
+  },
+};
+/*
+  OUTPUT
+
+  Hi! I'm Chris.
+  Hi! I'm Deepti.
+*/
 ```
