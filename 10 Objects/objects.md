@@ -435,11 +435,12 @@ console.log(Car);
 
 Using existing variables as values for property names.
 
-```
+```JS
 function makeUser(name, age){
  return{
    name: name,
    age: age,
+   // ...
  };
 }
 
@@ -447,13 +448,60 @@ let user = makeUser("Rohit", 35);
 console.log(user.name);
 ```
 
-In the example above, properties have the same names as variables.
+In the example above, properties have the same names as variables. It is so common that there’s a special property value shorthand to make it shorter.
+
+```JS
+function makeUser(name, age) {
+  return {
+    name, // same as name: name
+    age,  // same as age: age
+    // ...
+  };
+}
+```
+
+## Property names limitations
+
+We already know that we can't use keywords as an identifier. But for an object property, there’s no such restriction
+
+```JS
+// these properties are all right
+let obj = {
+  for: 1,
+  let: 2,
+  return: 3
+};
+
+console.log( obj.for + obj.let + obj.return );  // 6
+```
+
+In short, there are no limitations on property names. They can be any strings or symbols (a special type for identifiers, to be covered later).
+
+Other types are automatically converted to strings. For instance, a number 0 becomes a string "0" when used as a property key
+
+```JS
+let obj = {
+  0: "test" // same as "0": "test"
+};
+
+// both alerts access the same property (the number 0 is converted to string "0")
+console.log( obj["0"] ); // test
+console.log( obj[0] ); // test (same property)
+```
 
 ## Checking if property or method exist in object
+
+JavaScript allows to access the property of the object and there will be no error if the property doesn’t exist!
+
+Reading a non-existing property just returns `undefined`. So we can easily test whether the property exists or not
 
 **_using `in` operator_**
 
 `in` operator will check whether the given property exist or not. It will look for the property in the prototype chain also.
+
+```JS
+"key" in object
+```
 
 ```JS
 const User = {
@@ -465,6 +513,8 @@ const User = {
     }
 }
 
+console.log(User.fullName);
+console.log(User.salary)
 console.log(User.getDetails());
 console.log("fullName" in User);
 console.log("getDetails" in User);
@@ -472,93 +522,110 @@ console.log("getDetails" in User);
 /*
   OUTPUT
 
-  name is K Subramanyeshwara, the age is 26 and the gender is male
+  false
+  true
   true
   true
 */
 ```
 
-**_hasOwnProperty()_**
+Please note that on the left side of in there must be a `property name`. That’s usually a quoted string.
 
-`hasOwnProperty()` operator will check whether the given property or method exist or not. It will not check for the properties present in the prototype chain.
+**_Why do we need `in` operator_**
 
 ```JS
-const User = {
-    fullName: "K Subramanyeshwara",
-    age: 26,
-    gender: "male",
-    getDetails: function () {
-        return`name is ${this.fullName}, the age is ${this.age} and the gender is ${this.gender}`;
-    }
+let obj = {
+  test: undefined
+};
+
+console.log( obj.test ); // it's undefined, so - no such property?
+console.log( "test" in obj ); // true, the property does exist!
+```
+
+Situations where `undefined` is assigned in that case `in` operator needed but one shouldn't explicitly assign `undefined`
+
+## The "for..in" loop
+
+To go over all keys of an object, there exists a special form of the loop: `for..in` This is a completely different thing from the `for(;;)`
+
+```JS
+for (key in object) {
+  // executes the body for each key among object properties
+}
+```
+
+```JS
+let user = {
+  name: "John",
+  age: 30,
+  isAdmin: true
+};
+
+for (let key in user) {
+  // keys
+  console.log( key );  // name, age, isAdmin
+  // values for the keys
+  console.log( user[key] ); // John, 30, true
 }
 
-console.log(User.getDetails());
-console.log(User.hasOwnProperty("fullName"));
-console.log(User.hasOwnProperty("getDetails"));
+for (let prop in user) {
+    console.log(user[prop])
+}
+```
+
+## Is object ordered?
+
+Object is ordered in a special fashion: integer properties are sorted, others appear in creation order.
+
+```JS
+let codes = {
+  49: "Germany",
+  41: "Switzerland",
+  44: "Great Britain",
+  userExist: true,
+  1: "USA",
+  userSocialHandle: false,
+  userSalary: 10000,
+};
+
+for (let code in codes) {
+  console.log(code); // 1, 41, 44, 49
+}
 
 /*
   OUTPUT
 
-  name is K Subramanyeshwara, the age is 26 and the gender is male
-  true
-  true
+  1
+  41
+  44
+  49
+  userExist
+  userSocialHandle
+  userSalary
 */
 ```
 
-## Object Destructuring
-
-It is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
-
-### Resources
-
-- [Tutorials Tonigt](https://www.tutorialstonight.com/js/js-objects?expand_article=1)
-
-- [LearnersBucket](https://learnersbucket.com/tutorials/data-structures/javascript-objects-complete-reference/)
+If we want the objet to apear in the listed order we can add `+` sign before each code is enough.
 
 ```JS
-class Calc {
-    constructor(num1, num2) {
-      this.numberOne = num1;
-      this.numberTwo = num2;
-    }
-    addition = () => {
-      return this.numberOne + this.numberTwo;
-    };
-    subtraction = () => {
-      return this.numberOne - this.numberTwo;
-    };
-  }
-  let calculator = new Calc(1, 3);
-  const { addition } = calculator;
-  console.log(addition());
-```
-
-**_What is `this` referred in Object?_**
-
-The `this` keyword refers to the current object the code is being written inside. Why don't we write `object` name instead of `this`.
-
-when you only have to create a single object literal, it's not so useful. But if you create more than one, `this` enables you to use the same method definition for every object you create.
-
-Let's understand through an example,
-
-```JS
-const person1 = {
-  name: "Chris",
-  introduceSelf() {
-    console.log(`Hi! I'm ${this.name}.`);
-  },
+let codes = {
+  "+49": "Germany",
+  "+41": "Switzerland",
+  "+44": "Great Britain",
+  // ...,
+  "+1": "USA",
 };
 
-const person2 = {
-  name: "Deepti",
-  introduceSelf() {
-    console.log(`Hi! I'm ${this.name}.`);
-  },
-};
+for (let code in codes) {
+  console.log(code);
+}
+
 /*
   OUTPUT
 
-  Hi! I'm Chris.
-  Hi! I'm Deepti.
+  49
+  41
+  44
+  1
 */
 ```

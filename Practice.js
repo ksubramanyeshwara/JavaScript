@@ -1,6 +1,11 @@
-let dayFour = document.querySelector(".dayFour");
-let nextElementSibling = dayFour.nextElementSibling;
-let previousElementSibling = dayFour.previousElementSibling;
-console.log(dayFour);
-console.log(nextElementSibling.textContent);
-console.log(previousElementSibling.textContent);
+let codes = {
+  "+49": "Germany",
+  "+41": "Switzerland",
+  "+44": "Great Britain",
+  // ..,
+  "+1": "USA",
+};
+
+for (let code in codes) {
+  console.log(+code);
+}
