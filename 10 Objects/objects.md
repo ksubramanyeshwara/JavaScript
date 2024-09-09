@@ -20,7 +20,6 @@ Javascript is an object-based language, everything in javascript is an object or
 - Maths is an object
 - Objects are always objects
 
-
 ## JavaScript Object structure
 
 ![Object structure](./javascript-object.png)
@@ -432,6 +431,24 @@ console.log(Car);
 */
 ```
 
+## Property value shorthand
+
+Using existing variables as values for property names.
+
+```
+function makeUser(name, age){
+ return{
+   name: name,
+   age: age,
+ };
+}
+
+let user = makeUser("Rohit", 35);
+console.log(user.name);
+```
+
+In the example above, properties have the same names as variables.
+
 ## Checking if property or method exist in object
 
 **_using `in` operator_**
@@ -492,13 +509,11 @@ console.log(User.hasOwnProperty("getDetails"));
 
 It is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
 
-
 ### Resources
 
 - [Tutorials Tonigt](https://www.tutorialstonight.com/js/js-objects?expand_article=1)
 
 - [LearnersBucket](https://learnersbucket.com/tutorials/data-structures/javascript-objects-complete-reference/)
-
 
 ```JS
 class Calc {
@@ -517,7 +532,6 @@ class Calc {
   const { addition } = calculator;
   console.log(addition());
 ```
-
 
 **_What is `this` referred in Object?_**
 
