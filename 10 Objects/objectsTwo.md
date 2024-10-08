@@ -14,6 +14,7 @@ let object = {
 ```
 
 **ES6 syntax**
+
 ```JS
 let object = {
   methodName() {
@@ -83,3 +84,46 @@ console.log(principal.getFullName());
 ## Optional chaining '?.'
 
 The optional chaining ?. is a safe way to access nested object properties, even if an intermediate property doesn’t exist.
+
+### Accessing Nested Objects
+
+```JS
+const myStorage = {
+  "car": {
+    "inside": {
+      "glove box": "maps",
+      "passenger seat": "crumbs"
+     },
+    "outside": {
+      "trunk": "jack"
+    }
+  }
+};
+
+const gloveBoxContents = myStorage.car.inside["glove box"];
+```
+
+### Accessing Nested Array
+
+```JS
+const myPlants = [
+  {
+    type: "flowers",
+    list: [
+      "rose",
+      "tulip",
+      "dandelion"
+    ]
+  },
+  {
+    type: "trees",
+    list: [
+      "fir",
+      "pine",
+      "birch"
+    ]
+  }
+];
+
+const secondTree = myPlants[1].list[1];
+```

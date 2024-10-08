@@ -103,47 +103,59 @@ When you want to create multiple objects where the objects share same design.
 
 ```JS
 function Laptop(brand, processor, ram, gpu) {
-    this.brand = brand;
-    this.processor = processor;
-    this.ram = ram;
-    this.gpu = gpu;
+  this.brand = brand;
+  this.processor = processor;
+  this.ram = ram;
+  this.gpu = gpu;
+  this.laptopDetails = function () {
+    return `The brand of the laptop is ${this.brand} and the processor is ${this.processor} and the ram is ${this.ram} and the gpu is ${this.gpu}`;
+  };
 }
 // here brand, ram, cpu are the keys
 const laptop1 = new Laptop("Lenovo", "AMD", 24, "1024mb");
 const laptop2 = new Laptop("Dell", "Intel", 16, "1024mb");
-console.log(laptop1);
-console.log(laptop2);
+console.log(laptop1.laptopDetails());
+console.log(laptop2.laptopDetails());
+
 
 /*
     OUTPUT
 
-    Laptop { brand: 'Lenovo', processor: 'AMD', ram: 24, gpu: '1024mb' }
-    Laptop { brand: 'Dell', processor: 'Intel', ram: 16, gpu: '1024mb' }
+    The brand of the laptop is Lenovo and the processor is AMD and the ram is 24 and the gpu is 1024mb
+    The brand of the laptop is Dell and the processor is Intel and the ram is 16 and the gpu is 1024mb
 
 */
 ```
 
-Use the `prototype` property to add the methods to an object and this method is shared by all the objects created by constructor function.
+You can use the `prototype` property to add the methods to an object and this method is shared by all the objects created by constructor function.
 
 ```JS
-function Person(firstname, lastname, age) {
+function Person(firstname, lastname, age, company, occupation, salary) {
   this.firstname = firstname;
   this.lastname = lastname;
   this.age = age;
+  this.company = company;
+  this.occupation = occupation;
+  this.salary = salary;
+  this.jobDescription = function () {
+    return `I work as a ${this.occupation} at ${this.company} and my monthly salary is ${this.salary}.`;
+  };
 }
 
-Person.prototype.fullName = function() {
-  return "My name is " + this.firstname + " " + this.lastname;
-}
+Person.prototype.fullName = function () {
+  return `My name is ${this.firstname} ${this.lastname} and I am ${this.age} years old.`;
+};
 
-let person1 = new Person("K", "Subramanyeshwara", 25);
+let person1 = new Person("K", "Subramanyeshwara", 25, "Lava", "SDE", 155000);
 
 console.log(person1.fullName());
+console.log(person1.jobDescription());
 
 /*
     OUTPUT
 
-    My name is K Subramanyeshwara
+    My name is K Subramanyeshwara and I am 25 years old.
+  I work as a SDE at Lava and my monthly salary is 155000.
 */
 ```
 
@@ -507,30 +519,68 @@ console.log(User.hasOwnProperty("getDetails"));
 
 ## Object Destructuring
 
-It is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
-
-### Resources
-
-- [Tutorials Tonigt](https://www.tutorialstonight.com/js/js-objects?expand_article=1)
-
-- [LearnersBucket](https://learnersbucket.com/tutorials/data-structures/javascript-objects-complete-reference/)
+It allows you to extract properties from an object and assign them to variables in a concise and readable way.
 
 ```JS
-class Calc {
-    constructor(num1, num2) {
-      this.numberOne = num1;
-      this.numberTwo = num2;
-    }
-    addition = () => {
-      return this.numberOne + this.numberTwo;
-    };
-    subtraction = () => {
-      return this.numberOne - this.numberTwo;
-    };
-  }
-  let calculator = new Calc(1, 3);
-  const { addition } = calculator;
-  console.log(addition());
+// create an object
+const car = {
+  brand: "Toyota",
+  model: "Corolla",
+  year: 2005,
+  color: "White",
+  price: 8000,
+};
+
+// Destructure the Object: Use curly braces {} to specify the properties you want to extract
+const { brand, model, year } = car;
+
+//  you can use the destructured variables directly.
+console.log(`Brand: ${brand}`);
+console.log(`Model: ${model}`);
+
+// You can also rename the variables while destructuring, You can only rename the variable not the property name of the object
+const { color: carColor, price: carPrice } = car;
+console.log(`Color: ${carColor}`);
+
+// Default Values
+// You can assign default values to variables in case the property does not exist in the object
+const { engine = "Petrol" } = car;
+console.log(`Engine: ${engine}`);
+
+// Nested Object Destructuring
+// You can also destructure nested objects using curly braces {} inside the outer curly braces.
+const Person = {
+  name: "John Doe",
+  age: 30,
+  address: {
+    street: "123 Main St",
+    city: "New York",
+    state: "NY",
+  },
+  job: {
+    title: "Software Engineer",
+    company: "ABC Inc",
+    salary: 90000,
+  },
+};
+const {
+  address: { city, state },
+  job: { title: jobTitile },
+} = Person;
+console.log(`City: ${city}`);
+console.log(`Job: ${jobTitile}`);
+
+/*
+  OUTPUT
+
+  Brand: Toyota
+  Model: Corolla
+  Color: White
+  Engine: Petrol
+  City: New York
+  Job: Software Engineer
+*/ 
+
 ```
 
 **_What is `this` referred in Object?_**

@@ -1,6 +1,6 @@
 # Object references and copying
 
-In JavaScript, when you assign an object to a variable, you're creating a reference to that object in memory,  not a copy of the object itself. This applies to arrays, functions, and other complex data types as well.
+In JavaScript, when you assign an object to a variable, you're creating a reference to that object in memory, not a copy of the object itself. This applies to arrays, functions, and other complex data types as well.
 
 ```JS
 let obj1 = { name: 'Alice', age: 30 };
@@ -30,7 +30,7 @@ console.log(user.name); // Pete
 
 # Comparison by reference
 
-In JavaScript, objects are compared by reference, not by their content. 
+In JavaScript, objects are compared by reference, not by their content.
 When you compare two objects using the equality operators (== or ===), JavaScript checks if they refer to the same object in memory, rather than comparing their properties or values.
 
 ```JS
@@ -81,7 +81,7 @@ console.log(user); // Rohit
 console.log(clone); // Virat
 ```
 
-`object.assign`
+## `object.assign`
 
 `Object.assign(dest, ...sources)`
 
@@ -90,34 +90,45 @@ console.log(clone); // Virat
 
 It copies the properties of all source objects into the target dest, and then returns it as the result.
 
+> Object.assign will not deeply merge nested objects. Instead, it will overwrite properties at the top level.
+
 ```JS
-const original = {
-  a : 1,
-  b : {
-    c : 2,
+const objectOne = {
+  a: 1,
+  b: 2,
+  c: {
+    d: 4,
+    e: 5,
   },
-}
-console.log(original);
-const clone = {};
-Object.assign(clone, original);
-console.log(clone);
+};
+
+const objectTwo = {
+  a: 6,
+  b: 7,
+  c: 8,
+  d: {
+    e: 9,
+  },
+};
+const objectThree = {};
+Object.assign(objectThree, objectOne, objectTwo);
+console.log(objectThree);
 
 /*
   OUTPUT
 
-  { a: 1, b: { c: 2 } }
-  { a: 1, b: { c: 2 } }
+  { a: 6, b: 7, c: 8, d: { e: 9 } }
 */
 ```
 
 ### using spread operator
 
 ```JS
-const original = { 
+const original = {
     a: 10,
-    b: { 
+    b: {
         c: 20,
-    } 
+    }
 };
 const clone = { ...original };
 
@@ -132,15 +143,45 @@ console.log(clone);
 */
 ```
 
-> Object.assign() and rest operator and iterating over properties creatos shallow copy of the object
+> Object.assign() and rest operator and iterating over properties creatos shallow copy of the object and nested objects are not merged.
 
 ## Shallow vs Deep copy
 
 ### Shallow Copy
 
-A shallow copy creates a new object, but the values of the properties are references to the original object's properties.
+A shallow copy creates a new object, but the values of the properties are references to the original object's properties. This means that changes made to the original object's properties will also be reflected in the copy. Changes made to the nested object in the copy will also reflect in the original object.
 
-This means that changes made to the original object's properties will also be reflected in the copy.
+```JS
+const originalObject = {
+  a: 1,
+  b: 2,
+  c: 3,
+  d: {
+    e: 4,
+    f: 5,
+  },
+};
+
+console.log(originalObject);
+const shallowCopy = { ...originalObject };
+console.log(shallowCopy);
+
+shallowCopy.a = 10;
+shallowCopy.d.e = 20;
+console.log(shallowCopy);
+console.log(originalObject); // originalObject.d.e is also changed to 20
+
+/*
+    OUTPUT
+
+    { a: 1, b: 2, c: 3, d: { e: 4, f: 5 } }
+    { a: 1, b: 2, c: 3, d: { e: 4, f: 5 } }
+
+    { a: 10, b: 2, c: 3, d: { e: 20, f: 5 } }
+    { a: 1, b: 2, c: 3, d: { e: 20, f: 5 } }
+
+*/
+```
 
 ### Deep Copy
 
@@ -151,16 +192,23 @@ This means that changes made to the original object's properties will not affect
 ```JS
 // Original object
 const original = { a: 1, b: { c: 2 } };
-
-// Shallow copy
-const shallowCopy = { ...original };
-shallowCopy.b.c = 3;
-console.log(original.b.c); // 3 (changed)
+console.log(original);
 
 // Deep copy
 const deepCopy = JSON.parse(JSON.stringify(original));
+console.log(deepCopy);
+
+// Modify the original object
+original.b.c = 3;
+console.log(original);
+console.log(deepCopy);
+// The deep copy remains unchanged, while the original object has been modified. This demonstrates that the deep copy is a completely independent object, not just a reference to the original object.
+
+// let's modify the deep copy and see what happens to the original object
 deepCopy.b.c = 4;
-console.log(original.b.c); // 3 (unchanged)
+console.log(original);
+console.log(deepCopy);
+// As you can see, modifying the deep copy does not affect the original object. This further confirms that the deep copy is a completely independent object.
 ```
 
 **Limitations of JSON.parse(JSON.stringify()):**
@@ -169,7 +217,7 @@ console.log(original.b.c); // 3 (unchanged)
 - It doesn't handle circular references
 - It doesn't correctly copy certain object types (like Date, RegExp, Map, Set)
 
-#### structuredClone(object) 
+#### structuredClone(object)
 
 It clones the object with all nested properties. It doesn't support when an object has a function property.
 
