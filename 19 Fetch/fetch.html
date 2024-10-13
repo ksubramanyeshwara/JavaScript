@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch</title>
+    <script src="./fetch.js" defer></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 20px;
+        background-color: #f7f7f7;
+      }
+      .container {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Create a container to hold the UI elements -->
+    <div class="container">
+      <!-- Display the GitHub username fetched from the API -->
+      <h1>Github Username: <span id="github-username"></span></h1>
+
+      <!-- Display the public repos and followers counts fetched from the API -->
+      <p>
+        Public Repos: <span id="public-repos">0</span>, Followers:
+        <span id="followers">0</span>
+      </p>
+
+      <!-- Display the name of the Pokémon fetched from the API -->
+      <h2>Pokemon Name: <span id="pokemon-name"></span></h2>
+    </div>
+  </body>
+</html>
